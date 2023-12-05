@@ -1,0 +1,77 @@
+﻿@page "/ShortSongAdd"
+@using ShortSong.ViewModels
+@inherits ShortSongAddViewModel
+
+<h3>短歌登録</h3>
+
+
+
+
+<p>
+    <MatTextField @bind-Value="Shortsong1"
+                  Label="短歌" 
+                  Style="width:500px"/>
+</p>
+
+<p>
+    <MatTextField @bind-Value="Kana"
+                  Label="かな"
+                  Style="width:500px" />
+</p>
+
+<p>
+    <MatTextField @bind-Value="English"
+                  Label=" 英語"
+                  Style="width:500px" />
+
+    <MatButtonLink Href="https://translate.google.com/?hl=ja"
+                    Target="_brank"
+                    >
+        翻訳サイト
+    </MatButtonLink>
+</p>
+
+<p>
+    <MatTextField @bind-Value="Front"
+                  Label="前書き"
+                  Style="width:500px" />
+</p>
+
+<p>
+    <MatTextField @bind-Value="RefUta"
+                  Label="本歌"
+                  Style="width:500px" />
+</p>
+
+<p>
+    <MatTextField @bind-Value="Index"
+                  Label="見出し"
+                  Style="width:500px" />
+</p>
+
+<p>
+   <MatSelect Label="季節"
+   @bind-Value="Seazon">
+@foreach(var seazon in Seazons)
+        {
+            <MatOption Value="seazon.Code">@seazon.Value</MatOption>
+        }
+
+</MatSelect>
+</p>
+
+<p>
+    <MatTextField @bind-Value="Memo"
+                  Label="備考"
+                  Style="width:500px" />
+</p>
+
+
+
+
+<div>
+    <input type="button" 
+        value="登録"
+        disabled="@AddUnEnable"
+        @onclick="OnAddShortSongAsync"/>
+</div>

@@ -1,0 +1,51 @@
+﻿@page "/PreferenceAdd"
+@using ShortSong.ViewModels
+@inherits PreferenceAddViewModel
+
+
+<h3>お気に入り登録</h3>
+
+<p>
+    <MatTextField @bind-Value="Uta"
+                  Label="歌"
+                  Style="width:500px" />
+</p>
+
+<p>
+    <MatTextField @bind-Value="Author"
+                  Label="作者"
+                  Style="width:500px" />
+</p>
+
+<p>
+    <MatTextField @bind-Value="Book"
+                  Label="出典"
+                  Style="width:500px" />
+</p>
+
+<p>
+    <MatTextField @bind-Value="Era"
+                  Label="時代"
+                  Style="width:500px" />
+</p>
+      
+<p>
+    <MatTextField @bind-Value="Index"
+                  Label="見出し"
+                  Style="width:500px" />
+</p>
+
+<p>
+    <MatTextField @bind-Value="Memo"
+                  Label="備考"
+                  Style="width:500px" />
+</p>
+
+
+   
+
+<div>
+    <input type="button"
+           value="登録"
+           @onclick="OnAddPreferenceAsync" />
+</div>

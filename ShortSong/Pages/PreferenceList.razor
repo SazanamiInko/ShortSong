@@ -1,0 +1,63 @@
+﻿@page "/PreferenceList"
+@using ShortSong.ViewModels
+using ShortSong.ViewModels
+@inherits PreferenceListViewModel
+<h3>お気に入り一覧</h3>
+<p>検索条件</p>
+
+<p>
+    <MatTextField @bind-Value="KeyWord"
+                  Label="キーワード"
+                  Style="width:500px" />
+
+    <MatButton Style="font-size:large"
+               OnClick="OnSearch">
+        検索
+    </MatButton>
+</p>
+
+@if (Preferences.Count > 0)
+{
+    <MatTable Items="@Preferences">
+        <MatTableHeader>
+            <th>ID</th>
+            <th>短歌</th>
+            <th>作者</th>
+            <th>操作</th>
+        </MatTableHeader>
+        <MatTableRow>
+            <td>
+                @context.Id
+            </td>
+            <td>
+                <div style="white-space: nowrap;">
+                    @context.Uta
+                </div>
+            </td>
+            <td>
+                <div style="width:200px">
+                    @context.Author
+                </div>
+            </td>
+            <td>
+
+                <MatButton Style="font-size:large"
+                       OnClick="()=>OnDelete(context.Id)">
+                    削除
+                </MatButton>
+
+                <MatButton Style="font-size:large"
+                       OnClick="()=>OnEdit(context.Id)">
+                    編集
+                </MatButton>
+
+            </td>
+
+        </MatTableRow>
+
+    </MatTable>
+
+
+
+
+}
