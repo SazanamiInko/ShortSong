@@ -52,7 +52,6 @@ public partial class UtaContext : DbContext
                 .ValueGeneratedNever()
                 .HasColumnName("ID");
             entity.Property(e => e.Haiku).HasColumnType("VARCHAR(17)");
-            entity.Property(e => e.Kana).HasColumnType("VARCHAR(5)");
         });
 
         modelBuilder.Entity<THistory>(entity =>
