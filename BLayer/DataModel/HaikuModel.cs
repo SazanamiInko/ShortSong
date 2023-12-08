@@ -23,6 +23,8 @@ namespace BLayer.DataModel
         public long Seazon { get; set; }
 
         public string CreateDate { get; set; } = null!;
+        public string UpdateDate { get; set; } = null!;
+        public long UpdateCount { get; set; } 
 
         public long Delete { get; set; }
 

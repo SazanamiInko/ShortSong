@@ -3,6 +3,7 @@ using BLayer.Logics;
 using DLayer.Models;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
+using System.Diagnostics;
 
 namespace ShortSong.ViewModels
 {
@@ -47,13 +48,26 @@ namespace ShortSong.ViewModels
         [Parameter]
         public DateTime CreateDate { get; set; }
 
+
+        /// <summary>
+        /// 季語
+        /// </summary>
+        [Parameter]
+        public string SeazonWord { get; set; }
+
+
         /// <summary>
         /// 備考
         /// </summary>
         [Parameter]
         public string Memo { get; set; }
 
-      
+
+        /// <summary>
+        /// 見出し
+        /// </summary>
+        [Parameter]
+        public string Index{ get; set; }
 
         /// <summary>
         /// 季節
@@ -162,7 +176,8 @@ namespace ShortSong.ViewModels
             this.Memo = string.Empty;
            
             this.Front = string.Empty;
-           
+           this.Index=string.Empty;
+            this.SeazonWord = string.Empty;
 
         }
 
@@ -186,6 +201,8 @@ namespace ShortSong.ViewModels
             model.Front = this.Front;
            
             model.CreateDate = DateTime.Now.ToString();
+            model.UpdateDate = DateTime.Now.ToString();
+            model.UpdateCount = 0;
             return model;
         }
     }
