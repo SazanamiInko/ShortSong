@@ -205,10 +205,15 @@ namespace ShortSong.ViewModels
             model.English = this.English;
             //備考
             model.Memo = this.Memo;
-            //季語
+            //季節
             model.Seazon = this.Seazon;
             //前書き
             model.Front = this.Front;
+            //季語
+            model.SeazonWord = this.SeazonWord;
+            //見出し
+            model.Index = this.Index;
+
             //作成日時
             model.CreateDateTime = DateTime.Now.ToString();
             //更新日時

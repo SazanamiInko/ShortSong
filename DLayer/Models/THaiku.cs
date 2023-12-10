@@ -7,7 +7,7 @@ public partial class THaiku
 {
     public long Id { get; set; }
 
-    public string? SwazonWord { get; set; }
+    public string? SeazonWord { get; set; }
 
     public string Haiku { get; set; } = null!;
 

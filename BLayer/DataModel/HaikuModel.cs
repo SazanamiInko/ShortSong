@@ -41,6 +41,17 @@
         public long Seazon { get; set; }
 
         /// <summary>
+        /// 季語
+        /// </summary>
+        public string SeazonWord { get; set; }
+
+
+        /// <summary>
+        /// 見出し
+        /// </summary>
+        public string Index { get; set; }
+
+        /// <summary>
         /// 作成日時
         /// </summary>
         public string CreateDateTime { get; set; } = null!;
