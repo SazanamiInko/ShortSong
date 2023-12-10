@@ -187,22 +187,36 @@ namespace ShortSong.ViewModels
         /// <returns>データモデル</returns>
         private HaikuModel CreateDataModel()
         {
+            //俳句ロジック層の作成
             HaikuLogic logic = new HaikuLogic();
             logic.Context = this.Context;
 
+            //俳句モデルの作成
             HaikuModel model = new HaikuModel();
+            //ID番号の発行
             model.Id = logic.PublishedID();
+
+            #region データ作成
+            //俳句
             model.Haiku = this.Haiku;
+            //かな
             model.Kana = this.Kana;
+            //英語
             model.English = this.English;
+            //備考
             model.Memo = this.Memo;
-           
+            //季語
             model.Seazon = this.Seazon;
+            //前書き
             model.Front = this.Front;
-           
-            model.CreateDate = DateTime.Now.ToString();
-            model.UpdateDate = DateTime.Now.ToString();
+            //作成日時
+            model.CreateDateTime = DateTime.Now.ToString();
+            //更新日時
+            model.UpdateDateTime = DateTime.Now.ToString();
+            //更新回数
             model.UpdateCount = 0;
+            #endregion
+
             return model;
         }
     }
