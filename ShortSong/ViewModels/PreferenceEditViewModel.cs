@@ -1,6 +1,8 @@
 ﻿using BLayer.DataModel;
 using BLayer.Logics;
 using DLayer.Models;
+using DLayer.Services;
+using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 
@@ -68,11 +70,7 @@ namespace ShortSong.ViewModels
         [Inject]
         protected NavigationManager NavManager { get; set; }
 
-        /// <summary>
-        /// データコンテキスト
-        /// </summary>
-        [Inject]
-        public UtaContext Context { get; set; }
+       
         #endregion
 
         #region イベント
@@ -86,7 +84,7 @@ namespace ShortSong.ViewModels
             long lid = Convert.ToInt64(Id);
 
             PreferenceLogic logic = new PreferenceLogic();
-            logic.context = Context;
+            logic.Context = new UtaContextService();
             var target = logic.GetPreference(lid);
             this.CopyContent(target);
 
@@ -99,11 +97,9 @@ namespace ShortSong.ViewModels
         public void OnEditPreferenceAsync()
         {
             var model = this.CreateModel();
+        
 
-            PreferenceLogic logic = new PreferenceLogic();
-            logic.context = Context;
-
-            if (logic.UpdatePregerence(model))
+            if (FrontAPI.UpdatePregerence(model))
             {
                 MatDialogService.AlertAsync("お気に入りを更新しました。");
             }

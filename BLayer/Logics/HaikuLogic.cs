@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BLayer.DataModel;
+using DLayer.Interfacrs;
 using DLayer.Models;
 
 namespace BLayer.Logics
@@ -14,7 +15,7 @@ namespace BLayer.Logics
         /// <summary>
         /// データコンテキスト
         /// </summary>
-        public UtaContext? Context { get; set; }
+        public IUtaContext? Context { get; set; }
 
         #endregion
 

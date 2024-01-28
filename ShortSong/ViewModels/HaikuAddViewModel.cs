@@ -1,6 +1,8 @@
 ﻿using BLayer.DataModel;
 using BLayer.Logics;
 using DLayer.Models;
+using DLayer.Services;
+using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 using System.Diagnostics;
@@ -96,11 +98,7 @@ namespace ShortSong.ViewModels
         [Inject]
         public IMatDialogService MatDialogService { get; set; }
 
-        /// <summary>
-        /// データコンテキスト
-        /// </summary>
-        [Inject]
-        public UtaContext Context { get; set; }
+      
         #endregion
 
         #region コンストラクタ
@@ -125,7 +123,7 @@ namespace ShortSong.ViewModels
         protected override Task OnInitializedAsync()
         {
             SeazonLogic seazonLogic = new SeazonLogic();
-            seazonLogic.Context = this.Context;
+            seazonLogic.Context = new UtaContextService();
 
             this.Seazons.AddRange(seazonLogic.GetSeazons());
 
@@ -140,10 +138,7 @@ namespace ShortSong.ViewModels
             AddUnEnable = true;
             var model = CreateDataModel();
 
-            HaikuLogic logic = new HaikuLogic();
-            logic.Context = this.Context;
-
-            if (logic.AddHaiku(model))
+            if (FrontAPI.AddHaiku(model))
             {
                 await MatDialogService.AlertAsync("俳句を登録しました。");
 
@@ -166,10 +161,8 @@ namespace ShortSong.ViewModels
         /// </summary>
         private void Clear()
         {
-            HaikuLogic logic = new HaikuLogic();
-            logic.Context = this.Context;
-
-            this.Id = logic.PublishedID();
+           
+            this.Id = FrontAPI.PublishedHaikuId();
             this.Haiku = string.Empty;
             this.Kana = string.Empty;
             this.English = string.Empty;
@@ -187,14 +180,12 @@ namespace ShortSong.ViewModels
         /// <returns>データモデル</returns>
         private HaikuModel CreateDataModel()
         {
-            //俳句ロジック層の作成
-            HaikuLogic logic = new HaikuLogic();
-            logic.Context = this.Context;
+          ;
 
             //俳句モデルの作成
             HaikuModel model = new HaikuModel();
             //ID番号の発行
-            model.Id = logic.PublishedID();
+            model.Id = FrontAPI.PublishedHaikuId();
 
             #region データ作成
             //俳句

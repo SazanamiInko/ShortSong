@@ -1,6 +1,8 @@
 ﻿using BLayer.DataModel;
 using BLayer.Logics;
 using DLayer.Models;
+using DLayer.Services;
+using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 
@@ -53,11 +55,7 @@ namespace ShortSong.ViewModels
         [Inject]
         public IMatDialogService MatDialogService { get; set; }
 
-        /// <summary>
-        /// データコンテキスト
-        /// </summary>
-        [Inject]
-        public UtaContext Context { get; set; }
+       
         #endregion
 
 
@@ -66,10 +64,8 @@ namespace ShortSong.ViewModels
         {
             var model = this.CreateModel();
 
-            PreferenceLogic logic = new PreferenceLogic();
-            logic.context = Context;
 
-            if (logic.AddPreference(model))
+            if (FrontAPI.AddPreference(model))
             {
                 await MatDialogService.AlertAsync("お気に入りを登録しました。");
 

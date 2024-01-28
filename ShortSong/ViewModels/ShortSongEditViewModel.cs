@@ -1,6 +1,8 @@
 ﻿using BLayer.DataModel;
 using BLayer.Logics;
 using DLayer.Models;
+using DLayer.Services;
+using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 
@@ -104,11 +106,7 @@ namespace ShortSong.ViewModels
         [Inject]
         protected NavigationManager NavManager { get; set; }
 
-        /// <summary>
-        /// データコンテキスト
-        /// </summary>
-        [Inject]
-        public UtaContext Context { get; set; }
+       
 
         #endregion
 
@@ -134,18 +132,11 @@ namespace ShortSong.ViewModels
         /// </summary>
         /// <returns></returns>
         protected override Task OnInitializedAsync()
-        {
-
-            SeazonLogic seazonLogic = new SeazonLogic();
-            seazonLogic.Context = this.Context;
-
-            
-            this.Seazons.AddRange(seazonLogic.GetSeazons());
-
-
+        {    
+            this.Seazons.AddRange(FrontAPI.GetSeazons());
             long lid = Convert.ToInt64(Id);
             ShortSongLogic logic = new ShortSongLogic();
-            logic.Context = this.Context;
+            logic.Context = new UtaContextService();
 
             var target = logic.GetShortSong(lid);
             this.CopyContent(target);
@@ -158,17 +149,16 @@ namespace ShortSong.ViewModels
         {
 
             var model = this.CreateModel();
-            ShortSongLogic logic = new ShortSongLogic();
-            logic.Context = this.Context;
+           
 
-            if (logic.UpdateShortSong(model))
+            if (FrontAPI.UpdateShortSong(model))
             {
 
-                MatDialogService.AlertAsync("短歌を更新しました。");
+                _ = MatDialogService.AlertAsync("短歌を更新しました。");
             }
             else
             {
-                MatDialogService.AlertAsync("短歌の更新に失敗しました。");
+                _ = MatDialogService.AlertAsync("短歌の更新に失敗しました。");
             }
         }
 

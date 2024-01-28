@@ -1,6 +1,8 @@
 ﻿using BLayer.DataModel;
 using BLayer.Logics;
 using DLayer.Models;
+using DLayer.Services;
+using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 
@@ -36,11 +38,7 @@ namespace ShortSong.ViewModels
         [Inject]
         protected NavigationManager NavManager { get; set; }
 
-        /// <summary>
-        /// データコンテキスト
-        /// </summary>
-        [Inject]
-        public UtaContext Context { get; set; }
+       
 
         #endregion
 
@@ -105,9 +103,9 @@ namespace ShortSong.ViewModels
         {
             ShortSongs.Clear();
             ShortSongLogic logic = new ShortSongLogic();
-            logic.Context = this.Context;
+            logic.Context = new UtaContextService(); ;
 
-            ShortSongs.AddRange(logic.GetShortSongs(KeyWord));
+            ShortSongs.AddRange(FrontAPI.GetShortSongs(KeyWord));
         }
 
         /// <summary>
@@ -117,10 +115,7 @@ namespace ShortSong.ViewModels
         public void Delete(long id)
         {
             ShortSongs.Clear();
-            ShortSongLogic logic = new ShortSongLogic();
-            logic.Context = this.Context;
-
-            logic.DeleteShortSong(id);
+            FrontAPI.DeleteShortSong(id);
         }
 
         #endregion

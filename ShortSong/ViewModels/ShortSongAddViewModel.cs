@@ -2,6 +2,8 @@
 using BLayer.DataModel;
 using BLayer.Logics;
 using DLayer.Models;
+using DLayer.Services;
+using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 
@@ -94,11 +96,7 @@ namespace ShortSong.ViewModels
         [Inject]
         public IMatDialogService MatDialogService { get; set; }
 
-        /// <summary>
-        /// データコンテキスト
-        /// </summary>
-        [Inject]
-        public UtaContext Context { get; set; }
+      
         #endregion
 
         #region コンストラクタ
@@ -121,12 +119,8 @@ namespace ShortSong.ViewModels
         /// </summary>
         /// <returns></returns>
         protected override Task OnInitializedAsync()
-        {
-            SeazonLogic seazonLogic = new SeazonLogic();
-            seazonLogic.Context = this.Context;
-       
-            this.Seazons.AddRange(seazonLogic.GetSeazons());
-
+        {      
+            this.Seazons.AddRange(FrontAPI.GetSeazons());
             return base.OnInitializedAsync();
         }
 
@@ -138,10 +132,7 @@ namespace ShortSong.ViewModels
             AddUnEnable = true;
             var model = CreateDataModel();
 
-            ShortSongLogic logic = new ShortSongLogic();
-            logic.Context = this.Context;
-
-            if (logic.AddShortSong(model))
+            if (FrontAPI.AddShortSong(model))
             {
                 await MatDialogService.AlertAsync("短歌を登録しました。");
 
@@ -164,10 +155,8 @@ namespace ShortSong.ViewModels
         /// </summary>
         private void Clear()
         {
-            ShortSongLogic logic = new ShortSongLogic();
-            logic.Context = this.Context;
-
-            this.Id = logic.PublishedID();
+            
+            this.Id = FrontAPI.PublishedHaikuId();
             this.Shortsong1 = string.Empty;
             this.Kana = string.Empty;
             this.English = string.Empty;
@@ -184,11 +173,9 @@ namespace ShortSong.ViewModels
         /// <returns>データモデル</returns>
         private ShortSongModel CreateDataModel()
         {
-            ShortSongLogic logic = new ShortSongLogic();
-            logic.Context = this.Context;
-
+          
             ShortSongModel model = new ShortSongModel();
-            model.Id = logic.PublishedID();
+            model.Id = FrontAPI.PublishedHaikuId();
             model.Uta = this.Shortsong1;
             model.Kana = this.Kana;
             model.English = this.English;

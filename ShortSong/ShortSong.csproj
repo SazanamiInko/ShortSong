@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BLayer\BLayer.csproj" />
+    <ProjectReference Include="..\Flayer\FLayer.csproj" />
   </ItemGroup>
 
 </Project>

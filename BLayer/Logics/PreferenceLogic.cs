@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BLayer.DataModel;
+using DLayer.Interfacrs;
 using DLayer.Models;
 
 namespace BLayer.Logics
@@ -14,7 +15,7 @@ namespace BLayer.Logics
         /// <summary>
         /// データコンテキスト
         /// </summary>
-        public UtaContext context { get; set; }
+        public IUtaContext Context { get; set; }
 
         #endregion
 
@@ -34,8 +35,8 @@ namespace BLayer.Logics
 
 
                 var record = map.Map<TPreference>(model);
-                context.TPreferences.Add(record);
-                context.SaveChanges();
+                Context.TPreferences.Add(record);
+                Context.SaveChanges();
 
             }
             catch (Exception ex)
@@ -59,7 +60,7 @@ namespace BLayer.Logics
             Mapper map = new Mapper(config);
 
 
-            context.TPreferences.Where(record => record.Uta.IndexOf(keyword) > -1
+            Context.TPreferences.Where(record => record.Uta.IndexOf(keyword) > -1
                                                  || record.Author.IndexOf(keyword) > -1)
                 .ToList()
                 .ForEach(record =>
@@ -85,7 +86,7 @@ namespace BLayer.Logics
             try
             {
 
-                var target = context.TPreferences.Where(record => record.Id == model.Id)
+                var target = Context.TPreferences.Where(record => record.Id == model.Id)
                                    .FirstOrDefault();
                 if (target == null)
                 {
@@ -93,7 +94,7 @@ namespace BLayer.Logics
                 }
                 map.Map(model, target);
 
-                context.SaveChanges();
+                Context.SaveChanges();
 
             }
             catch (Exception)
@@ -114,15 +115,15 @@ namespace BLayer.Logics
             try
             {
 
-                var target = context.TPreferences.Where(record => record.Id == id)
+                var target = Context.TPreferences.Where(record => record.Id == id)
                                    .FirstOrDefault();
                 if (target == null)
                 {
                     return true;
                 }
 
-                context.TPreferences.Remove(target);
-                context.SaveChanges();
+                Context.TPreferences.Remove(target);
+                Context.SaveChanges();
             }
             catch (Exception)
             {
@@ -144,7 +145,7 @@ namespace BLayer.Logics
             Mapper map = new Mapper(config);
 
 
-            var target = context.TPreferences.Where(record => record.Id == id)
+            var target = Context.TPreferences.Where(record => record.Id == id)
                 .FirstOrDefault();
             if (target == null)
             {

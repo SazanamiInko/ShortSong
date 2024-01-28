@@ -1,6 +1,8 @@
 ﻿using BLayer.DataModel;
 using BLayer.Logics;
 using DLayer.Models;
+using DLayer.Services;
+using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 using ShortSong.Common;
@@ -40,11 +42,6 @@ namespace ShortSong.ViewModels
         [Inject]
         protected NavigationManager NavManager { get; set; }
 
-        /// <summary>
-        /// データコンテキスト
-        /// </summary>
-        [Inject]
-        public UtaContext Context { get; set; }
 
         #endregion
 
@@ -111,10 +108,7 @@ namespace ShortSong.ViewModels
         public void Search()
         {
             Preferences.Clear();
-
-            PreferenceLogic logic = new PreferenceLogic();
-            logic.context = Context;
-           var records= logic.GetPreferences(this.KeyWord);
+            var records = FrontAPI.GetPreferences(this.KeyWord);
             this.Preferences.AddRange(records);
         }
 
@@ -123,10 +117,8 @@ namespace ShortSong.ViewModels
         /// </summary>
         /// <param name="id"></param>
         public void Delete(long id)
-        {
-            PreferenceLogic logic = new PreferenceLogic();
-            logic.context = Context;
-            logic.DeletePrefernce(id);
+        {        
+            FrontAPI.DeletePreference(id);
         }
 
         #endregion
