@@ -1,13 +1,13 @@
 ﻿namespace BLayer.DataModel
 {
     /// <summary>
-    /// 短歌更新データモデル
+    /// 俳句更新モデル
     /// </summary>
-    public class ShortSongUpdateModel
+    public class HaikuUpdateModel
     {
-    /// <summary>
-    /// 管理番号
-    /// </summary>
+        /// <summary>
+        /// 管理番号
+        /// </summary>
         public long Id { get; set; }
 
         /// <summary>
@@ -16,9 +16,9 @@
         public string Front { get; set; } = null!;
 
         /// <summary>
-        /// 短歌
+        /// 俳句
         /// </summary>
-        public string Uta { get; set; } = null!;
+        public string Haiku { get; set; } = null!;
 
         /// <summary>
         /// カナ
@@ -31,9 +31,9 @@
         public string? English { get; set; }
 
         /// <summary>
-        /// 本歌
+        /// 季語
         /// </summary>
-        public string? RefUta { get; set; }
+        public string? seazonWord { get; set; }
 
         /// <summary>
         /// 季節
@@ -63,7 +63,6 @@
         /// <summary>
         /// コメント
         /// </summary>
-        public string Comment { get; set; }
-
+        public string? Comment { get; set; }
     }
 }
