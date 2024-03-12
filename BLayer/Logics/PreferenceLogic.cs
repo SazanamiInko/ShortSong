@@ -35,7 +35,7 @@ namespace BLayer.Logics
 
 
                 var record = map.Map<TPreference>(model);
-                Context.TPreferences.Add(record);
+                Context.GetPreferences().Add(record);
                 Context.SaveChanges();
 
             }
@@ -60,7 +60,7 @@ namespace BLayer.Logics
             Mapper map = new Mapper(config);
 
 
-            Context.TPreferences.Where(record => record.Uta.IndexOf(keyword) > -1
+            Context.GetPreferences().Where(record => record.Uta.IndexOf(keyword) > -1
                                                  || record.Author.IndexOf(keyword) > -1)
                 .ToList()
                 .ForEach(record =>
@@ -86,7 +86,7 @@ namespace BLayer.Logics
             try
             {
 
-                var target = Context.TPreferences.Where(record => record.Id == model.Id)
+                var target = Context.GetPreferences().Where(record => record.Id == model.Id)
                                    .FirstOrDefault();
                 if (target == null)
                 {
@@ -115,14 +115,14 @@ namespace BLayer.Logics
             try
             {
 
-                var target = Context.TPreferences.Where(record => record.Id == id)
+                var target = Context.GetPreferences().Where(record => record.Id == id)
                                    .FirstOrDefault();
                 if (target == null)
                 {
                     return true;
                 }
 
-                Context.TPreferences.Remove(target);
+                Context.GetPreferences().Remove(target);
                 Context.SaveChanges();
             }
             catch (Exception)
@@ -145,7 +145,7 @@ namespace BLayer.Logics
             Mapper map = new Mapper(config);
 
 
-            var target = Context.TPreferences.Where(record => record.Id == id)
+            var target = Context.GetPreferences().Where(record => record.Id == id)
                 .FirstOrDefault();
             if (target == null)
             {

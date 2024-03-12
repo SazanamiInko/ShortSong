@@ -32,7 +32,7 @@ namespace BLayer.Logics
             var config = new MapperConfiguration(cfg => { cfg.CreateMap<MSeazon, SeazonModel>(); });
             Mapper map = new Mapper(config);
 
-            Context.MSeazons.ToList()
+            Context.GetSeazons().ToList()
                             .ForEach(record =>
                             {
                                 var newRec = map.Map<SeazonModel>(record);

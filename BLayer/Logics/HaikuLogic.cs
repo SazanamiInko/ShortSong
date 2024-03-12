@@ -39,7 +39,7 @@ namespace BLayer.Logics
             try
             {  
                 var record = map.Map<THaiku>(model);
-                Context.THaikus.Add(record);
+                Context.GetHaikus().Add(record);
                 Context.SaveChanges();
             }
             catch (Exception ex)
@@ -63,12 +63,12 @@ namespace BLayer.Logics
                 throw new Exception("システム例外が発生しました");
             }
 
-            if (Context.THaikus.Count() == 0)
+            if (Context.GetHaikus().Count() == 0)
             {
                 return 1;
             }
 
-            var max = Context.THaikus.Max(record => record.Id) + 1;
+            var max = Context.GetHaikus().Max(record => record.Id) + 1;
             return max;
         }
 
@@ -90,7 +90,7 @@ namespace BLayer.Logics
             Mapper map = new Mapper(config);
 
 
-            Context.THaikus.Where(record => record.Haiku.IndexOf(keyword) != -1)
+            Context.GetHaikus().Where(record => record.Haiku.IndexOf(keyword) != -1)
                                 .Where(record => record.Delete == 0)
                                 .ToList()
                .ForEach(record =>
@@ -118,7 +118,7 @@ namespace BLayer.Logics
                     throw new Exception("システム例外が発生しました");
                 }
 
-                var target = Context.THaikus.Where(record => record.Id == id)
+                var target = Context.GetHaikus().Where(record => record.Id == id)
                     .FirstOrDefault();
 
                 if (target != null)
@@ -154,7 +154,7 @@ namespace BLayer.Logics
             Mapper map = new Mapper(config);
 
 
-            var record = Context.TShortSongs.Where(record => record.Id == id)
+            var record = Context.GetShortSong().Where(record => record.Id == id)
                 .FirstOrDefault();
 
             if (record != null)
@@ -183,7 +183,7 @@ namespace BLayer.Logics
             try
             {
 
-                var target = Context.TShortSongs.Where(record => record.Id == model.Id)
+                var target = Context.GetShortSong().Where(record => record.Id == model.Id)
                          .FirstOrDefault();
 
                 if (target == null)

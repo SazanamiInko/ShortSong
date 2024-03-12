@@ -27,12 +27,12 @@ namespace BLayer.Logics
         /// <returns>発行したID</returns>
         public long PublishedID()
         {
-            if (Context.TShortSongs.Count() == 0)
+            if (Context.GetShortSong().Count() == 0)
             {
                 return 1;
             }
 
-            var max = Context.TShortSongs.Max(record => record.Id) + 1;
+            var max = Context.GetShortSong().Max(record => record.Id) + 1;
             return max;
         }
 
@@ -51,7 +51,7 @@ namespace BLayer.Logics
             {
 
                 var record = map.Map<TShortSong>(model);
-                Context.TShortSongs.Add(record);
+                Context.GetShortSong().Add(record);
                 Context.SaveChanges();
             }
             catch (Exception ex)
@@ -76,7 +76,7 @@ namespace BLayer.Logics
             try
             {
 
-                var target = Context.TShortSongs.Where(record => record.Id == model.Id)
+                var target = Context.GetShortSong().Where(record => record.Id == model.Id)
                          .FirstOrDefault();
 
                 if (target == null)
@@ -121,7 +121,7 @@ namespace BLayer.Logics
             Mapper map = new Mapper(config);
 
 
-            Context.TShortSongs.Where(record => record.Uta.IndexOf(keyword) != -1
+            Context.GetShortSong().Where(record => record.Uta.IndexOf(keyword) != -1
                                              || (record.Index != null
                                                  && record.Index.IndexOf(keyword) != -1))
                                 .Where(record => record.Delete == 0)
@@ -147,7 +147,7 @@ namespace BLayer.Logics
             try
             {
 
-                var target = Context.TShortSongs.Where(record => record.Id == id)
+                var target = Context.GetShortSong().Where(record => record.Id == id)
                     .FirstOrDefault();
 
                 if (target != null)
@@ -176,7 +176,7 @@ namespace BLayer.Logics
             Mapper map = new Mapper(config);
 
 
-            var record = Context.TShortSongs.Where(record => record.Id == id)
+            var record = Context.GetShortSong().Where(record => record.Id == id)
                 .FirstOrDefault();
 
             if (record != null)
