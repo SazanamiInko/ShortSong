@@ -1,9 +1,4 @@
 ﻿using GenBLayer.DataMpdels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GenFront
 {
@@ -12,7 +7,7 @@ namespace GenFront
         /// <summary>
         /// テストデータモデル
         /// </summary>
-        private TestDataGenDataModel mode;
+        private TestDataGenDataModel model;
 
         /// <summary>
         /// 隠すコンストラクタ
@@ -22,10 +17,10 @@ namespace GenFront
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        /// <param name="mode"></param>
-        public DataGenEngine(TestDataGenDataModel mode)
+        /// <param name="model">モデル</param>
+        public DataGenEngine(TestDataGenDataModel model)
         {
-            this.mode = mode;
+            this.model = model;
         }
     }
 }

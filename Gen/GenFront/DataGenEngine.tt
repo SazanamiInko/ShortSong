@@ -3,3 +3,37 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="GenBLayer.DataMpdels" #>
+
+using DLayer.Interfacrs
+
+public class <#=model.ClassName#>
+{
+	#region メソッド	
+
+	<# foreach(var method in model.TestGenMethods)
+	{
+	#>
+	    /// <summary>
+        /// 
+        /// </summary>
+		public List<<#=model.Target#>> Gen<#=method.MethodName#>()
+		{
+			List<<#=model.Target#>> ret=new List<<#=model.Target#>>();
+		<# foreach (var objItem in method.Data)
+		{#>
+			<#=model.Target#> <#=model.Target#><#=objItem.ObjecctNo#>= new <#=model.Target#>();
+		
+			<# foreach (var param in objItem.Params)
+		{#>
+		 <#=model.Target#><#=objItem.ObjecctNo#>.<#=param.ColumnName#>="<#=param.Value#>"
+		<#}#>	
+		ret.Add(<#=model.Target#><#=objItem.ObjecctNo#>);
+		<#}#>	
+		return ret;
+		}
+	<#
+	}
+	#>
+	#endregion
+}

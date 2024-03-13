@@ -14,5 +14,10 @@
         /// 値
         /// </summary>
         public string Value { get; set; }
+
+        /// <summary>
+        /// 列名
+        /// </summary>
+        public string ColumnName { get; set; }
     }
 }

@@ -12,13 +12,14 @@ namespace GenFront
     using System.Linq;
     using System.Text;
     using System.Collections.Generic;
+    using GenBLayer.DataMpdels;
     using System;
     
     /// <summary>
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\PC\source\repos\ShortSong\GenFront\DataGenEngine.tt"
+    #line 1 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class DataGenEngine : DataGenEngineBase
     {
@@ -28,6 +29,157 @@ namespace GenFront
         /// </summary>
         public virtual string TransformText()
         {
+            this.Write("\r\nusing DLayer.Interfacrs\r\n\r\npublic class ");
+            
+            #line 10 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.ClassName));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n\t#region メソッド\t\r\n\r\n\t");
+            
+            #line 14 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+ foreach(var method in model.TestGenMethods)
+	{
+	
+            
+            #line default
+            #line hidden
+            this.Write("\t    /// <summary>\r\n        /// \r\n        /// </summary>\r\n\t\tpublic List<");
+            
+            #line 20 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.Target));
+            
+            #line default
+            #line hidden
+            this.Write("> Gen");
+            
+            #line 20 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(method.MethodName));
+            
+            #line default
+            #line hidden
+            this.Write("()\r\n\t\t{\r\n\t\t\tList<");
+            
+            #line 22 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.Target));
+            
+            #line default
+            #line hidden
+            this.Write("> ret=new List<");
+            
+            #line 22 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.Target));
+            
+            #line default
+            #line hidden
+            this.Write(">();\r\n\t\t");
+            
+            #line 23 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+ foreach (var objItem in method.Data)
+		{
+            
+            #line default
+            #line hidden
+            this.Write("\t\t\t");
+            
+            #line 25 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.Target));
+            
+            #line default
+            #line hidden
+            this.Write(" ");
+            
+            #line 25 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.Target));
+            
+            #line default
+            #line hidden
+            
+            #line 25 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(objItem.ObjecctNo));
+            
+            #line default
+            #line hidden
+            this.Write("= new ");
+            
+            #line 25 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.Target));
+            
+            #line default
+            #line hidden
+            this.Write("();\r\n\t\t\r\n\t\t\t");
+            
+            #line 27 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+ foreach (var param in objItem.Params)
+		{
+            
+            #line default
+            #line hidden
+            this.Write("\t\t ");
+            
+            #line 29 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.Target));
+            
+            #line default
+            #line hidden
+            
+            #line 29 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(objItem.ObjecctNo));
+            
+            #line default
+            #line hidden
+            this.Write(".");
+            
+            #line 29 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(param.ColumnName));
+            
+            #line default
+            #line hidden
+            this.Write("=\"");
+            
+            #line 29 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(param.Value));
+            
+            #line default
+            #line hidden
+            this.Write("\"\r\n\t\t");
+            
+            #line 30 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write("\t\r\n\t\tret.Add(");
+            
+            #line 31 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(model.Target));
+            
+            #line default
+            #line hidden
+            
+            #line 31 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(objItem.ObjecctNo));
+            
+            #line default
+            #line hidden
+            this.Write(");\r\n\t\t");
+            
+            #line 32 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write("\t\r\n\t\treturn ret;\r\n\t\t}\r\n\t");
+            
+            #line 35 "C:\Users\PC\source\repos\ShortSong\Gen\GenFront\DataGenEngine.tt"
+
+	}
+	
+            
+            #line default
+            #line hidden
+            this.Write("\t#endregion\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }
