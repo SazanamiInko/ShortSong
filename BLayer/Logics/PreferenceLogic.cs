@@ -32,10 +32,8 @@ namespace BLayer.Logics
                 var config = new MapperConfiguration(cfg => { cfg.CreateMap<PreferenceAddModel, TPreference>(); });
                 Mapper map = new Mapper(config);
 
-
-
                 var record = map.Map<TPreference>(model);
-                Context.GetPreferences().Add(record);
+                Context.InsertPreferences(record);
                 Context.SaveChanges();
 
             }
@@ -93,7 +91,7 @@ namespace BLayer.Logics
                     return true;
                 }
                 map.Map(model, target);
-
+                Context.UpdatePreferences(target);
                 Context.SaveChanges();
 
             }
@@ -114,7 +112,6 @@ namespace BLayer.Logics
         {
             try
             {
-
                 var target = Context.GetPreferences().Where(record => record.Id == id)
                                    .FirstOrDefault();
                 if (target == null)
@@ -122,7 +119,7 @@ namespace BLayer.Logics
                     return true;
                 }
 
-                Context.GetPreferences().Remove(target);
+                Context.RemovePreferences(target);
                 Context.SaveChanges();
             }
             catch (Exception)
