@@ -19,5 +19,10 @@
         /// 列名
         /// </summary>
         public string ColumnName { get; set; }
+
+        /// <summary>
+        /// データタイプ
+        /// </summary>
+        public string Type { get; set; }
     }
 }

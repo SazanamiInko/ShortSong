@@ -53,7 +53,20 @@
 
             return target.ColumnName;
         }
-        
+
+        public string GetColumnType(int columnNo)
+        {
+            var target = Columnes.Where(record => record.ColumnNo == columnNo)
+                .FirstOrDefault();
+
+            if (target == null)
+            {
+                return string.Empty;
+            }
+
+            return target.Type;
+        }
+
         #endregion
     }
 }

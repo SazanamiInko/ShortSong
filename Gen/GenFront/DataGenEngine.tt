@@ -5,35 +5,44 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="GenBLayer.DataMpdels" #>
 
-using DLayer.Interfacrs
+using DLayer.Models;
 
-public class <#=model.ClassName#>
+namespace FrontUT.TTestDataGen
 {
-	#region メソッド	
-
-	<# foreach(var method in model.TestGenMethods)
+	public class <#=model.ClassName#>
 	{
-	#>
-	    /// <summary>
-        /// 
-        /// </summary>
-		public List<<#=model.Target#>> Gen<#=method.MethodName#>()
+		#region メソッド	
+
+		<# foreach(var method in model.TestGenMethods)
 		{
-			List<<#=model.Target#>> ret=new List<<#=model.Target#>>();
-		<# foreach (var objItem in method.Data)
-		{#>
-			<#=model.Target#> <#=model.Target#><#=objItem.ObjecctNo#>= new <#=model.Target#>();
+			#>
+			/// <summary>
+			/// <#=method.MethodName#>データ作成
+			/// </summary>
+			public List<<#=model.Target#>> Gen<#=method.MethodName#>()
+			{
+				List<<#=model.Target#>> ret=new List<<#=model.Target#>>();
+				<# foreach (var objItem in method.Data)
+				{#>
+					<#=model.Target#> <#=model.Target#><#=objItem.ObjecctNo#>= new <#=model.Target#>();
 		
-			<# foreach (var param in objItem.Params)
-		{#>
-		 <#=model.Target#><#=objItem.ObjecctNo#>.<#=param.ColumnName#>="<#=param.Value#>"
-		<#}#>	
-		ret.Add(<#=model.Target#><#=objItem.ObjecctNo#>);
-		<#}#>	
+					<# foreach (var param in objItem.Params)
+					{#>
+						<# if(param.Type=="s"){#>
+							<#=model.Target#><#=objItem.ObjecctNo#>.<#=param.ColumnName#>="<#=param.Value#>";
+						<#}#>	
+						<# if(param.Type=="n"){#>
+							<#=model.Target#><#=objItem.ObjecctNo#>.<#=param.ColumnName#>=<#=param.Value#>;
+						<#}#>
+					<#}#>	
+		
+			ret.Add(<#=model.Target#><#=objItem.ObjecctNo#>);
+			<#}#>	
 		return ret;
 		}
 	<#
 	}
 	#>
 	#endregion
+}
 }

@@ -19,5 +19,10 @@
         /// コメント
         /// </summary>
         public string Comment { get;set;}
+
+        /// <summary>
+        /// データタイプ
+        /// </summary>
+        public string Type { get; set; }
     }
 }
