@@ -156,7 +156,7 @@ namespace ShortSong.ViewModels
         private void Clear()
         {
             
-            this.Id = FrontAPI.PublishedHaikuId();
+            this.Id = FrontAPI.PublishIDShortSong();
             this.Shortsong1 = string.Empty;
             this.Kana = string.Empty;
             this.English = string.Empty;
@@ -175,7 +175,7 @@ namespace ShortSong.ViewModels
         {
           
             ShortSongModel model = new ShortSongModel();
-            model.Id = FrontAPI.PublishedHaikuId();
+            model.Id = FrontAPI.PublishIDShortSong();
             model.Uta = this.Shortsong1;
             model.Kana = this.Kana;
             model.English = this.English;

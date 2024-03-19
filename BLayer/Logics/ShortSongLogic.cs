@@ -51,7 +51,7 @@ namespace BLayer.Logics
             {
 
                 var record = map.Map<TShortSong>(model);
-                Context.GetShortSong().Add(record);
+                Context.InsertShortSong(record);
                 Context.SaveChanges();
             }
             catch (Exception ex)
@@ -94,7 +94,7 @@ namespace BLayer.Logics
                 }
 
                 map.Map(model, target);
-
+                Context.UpdateShortSong(target);
                 Context.SaveChanges();
 
             }
@@ -153,6 +153,7 @@ namespace BLayer.Logics
                 if (target != null)
                 {
                     target.Delete = 1;
+                    Context.UpdateShortSong(target);
                     Context.SaveChanges();
                 }
             }
