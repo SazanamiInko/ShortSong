@@ -37,8 +37,11 @@ namespace BLayer.Logics
             var config = new MapperConfiguration(cfg => { cfg.CreateMap<HaikuModel, THaiku>(); });
             Mapper map = new Mapper(config);
             try
-            {  
+            {
                 var record = map.Map<THaiku>(model);
+                record.UpdateCount = 0;
+                record.UpdateDateTime = string.Empty;
+                record.CreateDateTime = DateTime.Now.ToString();
                 Context.GetHaikus().Add(record);
                 Context.SaveChanges();
             }
@@ -90,7 +93,8 @@ namespace BLayer.Logics
             Mapper map = new Mapper(config);
 
 
-            Context.GetHaikus().Where(record => record.Haiku.IndexOf(keyword) != -1)
+            Context.GetHaikus().Where(record => ((record.Haiku.IndexOf(keyword) != -1)
+                                                  || (record.Index.IndexOf(keyword) != -1)))
                                 .Where(record => record.Delete == 0)
                                 .ToList()
                .ForEach(record =>
@@ -111,28 +115,25 @@ namespace BLayer.Logics
         /// <returns>削除に成功した場合はrue</returns>
         public bool DeleteHaiku(long id)
         {
-            try
+            if (Context == null)
             {
-                if (Context == null)
-                {
-                    throw new Exception("システム例外が発生しました");
-                }
-
-                var target = Context.GetHaikus().Where(record => record.Id == id)
-                    .FirstOrDefault();
-
-                if (target != null)
-                {
-                    target.UpdateDateTime = DateTime.Now.ToString();
-                    target.Delete = 1;
-                    Context.SaveChanges();
-                }
+                throw new Exception("システム例外が発生しました");
             }
-            catch (Exception)
+
+            var target = Context.GetHaikus().Where(record => record.Id == id)
+                .FirstOrDefault();
+
+            if (target != null)
             {
-                return false;
-                throw;
+                target.UpdateDateTime = DateTime.Now.ToString();
+                target.Delete = 1;
+                Context.SaveChanges();
             }
+            else
+            {
+                throw new Exception("システム例外が発生しました");
+            }
+
             return true;
         }
 
@@ -153,15 +154,14 @@ namespace BLayer.Logics
             var config = new MapperConfiguration(cfg => { cfg.CreateMap<THaiku, HaikuModel>(); });
             Mapper map = new Mapper(config);
 
-
-            var record = Context.GetShortSong().Where(record => record.Id == id)
+            var record = Context.GetHaikus().Where(record => record.Id == id)
                 .FirstOrDefault();
 
             if (record != null)
             {
                 return map.Map<HaikuModel>(record);
             }
-            return ret;
+            return null;
 
         }
 
@@ -183,7 +183,7 @@ namespace BLayer.Logics
             try
             {
 
-                var target = Context.GetShortSong().Where(record => record.Id == model.Id)
+                var target = Context.GetHaikus().Where(record => record.Id == model.Id)
                          .FirstOrDefault();
 
                 if (target == null)
@@ -193,7 +193,7 @@ namespace BLayer.Logics
 
                 map.Map(model, target);
                 target.UpdateCount = model.UpdateCount + 1;
-                target.UpdateDate = DateTime.Now.ToString();
+                target.UpdateDateTime = DateTime.Now.ToString();
                 Context.SaveChanges();
 
             }
@@ -206,5 +206,5 @@ namespace BLayer.Logics
             return true;
         }
     }
-#endregion
+    #endregion
 }

@@ -33,7 +33,7 @@
         /// <summary>
         /// 季語
         /// </summary>
-        public string? seazonWord { get; set; }
+        public string? SeazonWord { get; set; }
 
         /// <summary>
         /// 季節
@@ -53,7 +53,7 @@
         /// <summary>
         /// 更新日時
         /// </summary>
-        public string UpdateDate { get; set; } = null!;
+        public string UpdateDateTime { get; set; } = null!;
 
         /// <summary>
         /// 更新回数

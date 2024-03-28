@@ -6,10 +6,36 @@ namespace FrontUT.TTestDataGen
 	{
 		#region メソッド	
 
+
 		/// <summary>
 		/// Pattern1データ作成
 		/// </summary>
-		public List<THaiku> GenPattern1()
+		public List<THaiku> GenPattern0()
+		{
+			List<THaiku> ret = new List<THaiku>();
+			THaiku THaiku1 = new THaiku();
+
+			THaiku1.Id = 1;
+			THaiku1.Front = "まえがき";
+			THaiku1.Haiku = "テストなのああテストなのテストなの";
+			THaiku1.Kana = "てすとなのああてすとなのてすとなの";
+			THaiku1.Seazon = 1;
+			THaiku1.SeazonWord = "テスト";
+			THaiku1.Memo = "備考です";
+			THaiku1.Index = "インコ俳句会";
+			THaiku1.English = "Test";
+			THaiku1.Delete = 0;
+			THaiku1.CreateDateTime = "システム日時";
+			THaiku1.UpdateDateTime = "システム日時";
+			THaiku1.UpdateCount = 1;
+			ret.Add(THaiku1);
+			return ret;
+		}
+
+            /// <summary>
+            /// Pattern1データ作成
+            /// </summary>
+            public List<THaiku> GenPattern1()
 		{
 			List<THaiku> ret = new List<THaiku>();
 			THaiku THaiku1 = new THaiku();
