@@ -161,17 +161,17 @@ namespace ShortSong.ViewModels
         /// </summary>
         private void Clear()
         {
-           
+
             this.Id = FrontAPI.PublishedHaikuId();
             this.Haiku = string.Empty;
             this.Kana = string.Empty;
             this.English = string.Empty;
             this.Memo = string.Empty;
-           
-            this.Front = string.Empty;
-           this.Index=string.Empty;
-            this.SeazonWord = string.Empty;
 
+            this.Front = string.Empty;
+            this.Index = string.Empty;
+            this.SeazonWord = string.Empty;
+            this.Seazon = 0;
         }
 
         /// <summary>
