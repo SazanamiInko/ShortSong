@@ -164,7 +164,7 @@ namespace ShortSong.ViewModels
             this.Index = string.Empty;
             this.Front= string.Empty;
             this.RefUta= string.Empty;
-
+            this.Seazon = 0;
         }
 
         /// <summary>
