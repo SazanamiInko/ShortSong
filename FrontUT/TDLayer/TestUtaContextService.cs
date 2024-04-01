@@ -82,7 +82,7 @@ namespace FrontUT.TDLayer
         /// <returns></returns>
         public List<TShortSong> GetShortSong()
         {
-            return this.ShortSongs;
+            return this.ShortSongs.ToList();
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace FrontUT.TDLayer
         /// <returns></returns>
         public List<TPreference> GetPreferences()
         {
-            return this.Preferences;
+            return this.Preferences.ToList();
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace FrontUT.TDLayer
         /// <returns></returns>
         public List<THaiku> GetHaikus()
         {
-            return this.Haikus;
+            return this.Haikus.ToList();
         }
 
         /// <summary>
