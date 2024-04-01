@@ -42,7 +42,7 @@ namespace BLayer.Logics
                 record.UpdateCount = 0;
                 record.UpdateDateTime = string.Empty;
                 record.CreateDateTime = DateTime.Now.ToString();
-                Context.GetHaikus().Add(record);
+                Context.InsertHaiku(record);
                 Context.SaveChanges();
             }
             catch (Exception ex)
