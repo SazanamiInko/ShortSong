@@ -69,10 +69,23 @@ namespace ShortSong.ViewModels
             }
         }
 
+        /// <summary>
+        /// 削除
+        /// </summary>
+        /// <param name="id"></param>
         public async void OnDelete(long id)
         {
+            var result = await MatDialogService.ConfirmAsync("俳句を削除していいですか?");
 
+            if (result)
+            {
+                this.Delete(id);
+                this.Search();
+            }
+            this.StateHasChanged();
         }
+
+       
 
         public async void OnEdit(long id)
         {
@@ -91,6 +104,15 @@ namespace ShortSong.ViewModels
             Haikus.Clear();
             var records = FrontAPI.GetHaikus(this.KeyWord);
             this.Haikus.AddRange(records);
+        }
+
+        /// <summary>
+        /// 削除
+        /// </summary>
+        /// <param name="id">管理番号</param>
+        private void Delete(long id)
+        {
+            FrontAPI.DeleteHaiku(id);
         }
         #endregion
 
