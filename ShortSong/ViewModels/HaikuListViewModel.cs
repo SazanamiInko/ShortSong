@@ -21,7 +21,7 @@ namespace ShortSong.ViewModels
         /// <summary>
         /// お気に入り一覧
         /// </summary>
-        public List<HaikuSimpleModel> Haikus { get; set; }
+        public List<HaikuSimple> Haikus { get; set; }
 
         #endregion
 
@@ -44,9 +44,12 @@ namespace ShortSong.ViewModels
 
         #region コンストラクタ
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public HaikuListViewModel()
         {
-            this.Haikus = new List<HaikuSimpleModel>();
+            this.Haikus = new List<HaikuSimple>();
         }
 
         #endregion
@@ -87,7 +90,7 @@ namespace ShortSong.ViewModels
         {
             Haikus.Clear();
             var records = FrontAPI.GetHaikus(this.KeyWord);
-            this.Haikus.AddRange((IEnumerable<HaikuSimpleModel>)records);
+            this.Haikus.AddRange(records);
         }
         #endregion
 
