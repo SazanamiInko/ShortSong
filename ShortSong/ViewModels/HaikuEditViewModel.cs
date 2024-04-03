@@ -1,4 +1,5 @@
 ﻿using BLayer.DataModel;
+using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 
@@ -86,6 +87,16 @@ namespace ShortSong.ViewModels
         /// </summary>
         public List<SeazonModel> Seazons { get; }
 
+        /// <summary>
+        /// コメント
+        /// </summary>
+        public string Comment { get; set; }
+
+        /// <summary>
+        /// 更新回数
+        /// </summary>
+        public long UpdateCount { get; set; }
+
         #endregion
 
         #region サービス
@@ -111,5 +122,55 @@ namespace ShortSong.ViewModels
         }
 
         #endregion
+
+        #region イベント
+
+        /// <summary>
+        /// 初期化イベント
+        /// </summary>
+        /// <returns></returns>
+        protected override Task OnInitializedAsync()
+        {
+            this.Seazons.AddRange(FrontAPI.GetSeazons());
+            long lid = Convert.ToInt64(Id);
+           
+
+            var target = FrontAPI.GetHaiku(lid);
+            this.CopyContent(target);
+
+            return base.OnInitializedAsync();
+
+        }
+
+        protected void OnEditHaikuAsync()
+        {
+
+        }
+
+
+        #endregion
+
+        #region メソッド
+
+        /// <summary>
+        /// モデルコピー
+        /// </summary>
+        /// <param name="model"></param>
+        private void CopyContent(HaikuModel model)
+        {
+            this.Id = model.Id.ToString();
+            this.Haiku = model.Haiku;
+            this.Kana = model.Kana;
+            this.English = model.English;
+            this.Index = model.Index;
+            this.Seazon = model.Seazon;
+            this.SeazonWord = model.SeazonWord;
+            this.Memo = model.Memo;
+            this.Front = model.Front;
+            this.UpdateCount = model.UpdateCount;
+        }
+        #endregion
+
+
     }
 }
