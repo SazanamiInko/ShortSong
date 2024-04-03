@@ -142,9 +142,23 @@ namespace ShortSong.ViewModels
 
         }
 
+        /// <summary>
+        /// 俳句編集
+        /// </summary>
         protected void OnEditHaikuAsync()
         {
+            var model = this.CreateModel();
 
+
+            if (FrontAPI.UpdateHaiku(model))
+            {
+
+                _ = MatDialogService.AlertAsync("俳句を更新しました。");
+            }
+            else
+            {
+                _ = MatDialogService.AlertAsync("俳句の更新に失敗しました。");
+            }
         }
 
 
@@ -168,6 +182,27 @@ namespace ShortSong.ViewModels
             this.Memo = model.Memo;
             this.Front = model.Front;
             this.UpdateCount = model.UpdateCount;
+        }
+
+        /// <summary>
+        /// モデル作成
+        /// </summary>
+        /// <returns></returns>
+        private HaikuUpdateModel CreateModel()
+        {
+            HaikuUpdateModel model = new HaikuUpdateModel();
+
+            model.Id = Convert.ToInt64(this.Id);
+            model.Haiku = this.Haiku;
+            model.Kana = this.Kana;
+            model.English = this.English;
+            model.Index = this.Index;
+            model.Seazon = this.Seazon;
+            model.SeazonWord = this.SeazonWord;
+            model.Memo = this.Memo;
+            model.Front = this.Front;
+
+            return model;
         }
         #endregion
 
