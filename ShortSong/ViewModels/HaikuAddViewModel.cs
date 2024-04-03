@@ -1,11 +1,9 @@
 ﻿using BLayer.DataModel;
 using BLayer.Logics;
-using DLayer.Models;
 using DLayer.Services;
 using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
-using System.Diagnostics;
 
 namespace ShortSong.ViewModels
 {
@@ -17,6 +15,7 @@ namespace ShortSong.ViewModels
         /// <summary>
         /// ID
         /// </summary>
+        [Parameter]
         public long Id { get; set; }
 
         /// <summary>
