@@ -2,6 +2,7 @@
 using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
+using ShortSong.Common;
 
 namespace ShortSong.ViewModels
 {
@@ -86,10 +87,13 @@ namespace ShortSong.ViewModels
         }
 
        
-
+    /// <summary>
+    /// 編集
+    /// </summary>
+    /// <param name="id"></param>
         public async void OnEdit(long id)
         {
-
+            NavManager.NavigateTo(PageList.HAIKUEDIT + "/" + id.ToString());
         }
 
         #endregion

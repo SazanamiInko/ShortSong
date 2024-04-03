@@ -36,5 +36,22 @@
         /// </summary>
         public const string PREFERENCEEDIT = "/PreferenceEdit";
 
+
+        /// <summary>
+        /// 俳句登録
+        /// </summary>
+        public const string HAIKUADD = "/HaikuAdd";
+
+        /// <summary>
+        /// 俳句リスト
+        /// </summary>
+        public const string HAIKULIST = "/HaikuList";
+
+        /// <summary>
+        /// 俳句編集
+        /// </summary>
+        public const string HAIKUEDIT = "/HaikuEdit";
+
+
     }
 }
