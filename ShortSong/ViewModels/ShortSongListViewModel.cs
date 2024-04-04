@@ -1,7 +1,4 @@
 ﻿using BLayer.DataModel;
-using BLayer.Logics;
-using DLayer.Models;
-using DLayer.Services;
 using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
@@ -102,8 +99,6 @@ namespace ShortSong.ViewModels
         public void Search()
         {
             ShortSongs.Clear();
-            ShortSongLogic logic = new ShortSongLogic();
-            logic.Context = new UtaContextService(); ;
 
             ShortSongs.AddRange(FrontAPI.GetShortSongs(KeyWord));
         }

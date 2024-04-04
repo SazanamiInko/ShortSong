@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace ShortSong.ViewModels
 {
+    /// <summary>
+    /// お気に入り
+    /// </summary>
     public class PreferenceEditViewModel:ComponentBase
     {
 
@@ -92,7 +95,9 @@ namespace ShortSong.ViewModels
         }
 
       
-
+        /// <summary>
+        /// お気に入り編集イベント
+        /// </summary>
         public void OnEditPreferenceAsync()
         {
             var model = this.CreateModel();

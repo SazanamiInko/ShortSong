@@ -1,6 +1,4 @@
 ﻿using BLayer.DataModel;
-using BLayer.Logics;
-using DLayer.Services;
 using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
@@ -121,10 +119,9 @@ namespace ShortSong.ViewModels
         /// <returns></returns>
         protected override Task OnInitializedAsync()
         {
-            SeazonLogic seazonLogic = new SeazonLogic();
-            seazonLogic.Context = new UtaContextService();
+           
 
-            this.Seazons.AddRange(seazonLogic.GetSeazons());
+            this.Seazons.AddRange(FrontAPI.GetSeazons());
 
             return base.OnInitializedAsync();
         }

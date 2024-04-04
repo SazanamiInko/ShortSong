@@ -1,7 +1,4 @@
 ﻿using BLayer.DataModel;
-using BLayer.Logics;
-using DLayer.Models;
-using DLayer.Services;
 using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
@@ -67,9 +64,7 @@ namespace ShortSong.ViewModels
         /// 目次
         /// </summary>
         [Parameter]
-        public string Index { get; set; }
-
-       
+        public string Index { get; set; }      
 
         /// <summary>
         /// 季節
@@ -110,8 +105,6 @@ namespace ShortSong.ViewModels
 
         #endregion
 
-
-
         #region コンストラクタ
 
         /// <summary>
@@ -135,16 +128,18 @@ namespace ShortSong.ViewModels
         {    
             this.Seazons.AddRange(FrontAPI.GetSeazons());
             long lid = Convert.ToInt64(Id);
-            ShortSongLogic logic = new ShortSongLogic();
-            logic.Context = new UtaContextService();
+          
 
-            var target = logic.GetShortSong(lid);
+            var target = FrontAPI.GetShortSong(lid);
             this.CopyContent(target);
 
             return base.OnInitializedAsync();
 
         }
 
+        /// <summary>
+        /// 短歌編集イベント
+        /// </summary>
         public async void OnEditShortSongAsync()
         {
 

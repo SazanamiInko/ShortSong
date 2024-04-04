@@ -1,8 +1,5 @@
 ﻿
 using BLayer.DataModel;
-using BLayer.Logics;
-using DLayer.Models;
-using DLayer.Services;
 using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;

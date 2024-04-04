@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace ShortSong.ViewModels
 {
+    /// <summary>
+    /// お気に入り登録画面ビューモデル
+    /// </summary>
     public class PreferenceAddViewModel:ComponentBase
     {
         #region 定数
@@ -57,6 +60,11 @@ namespace ShortSong.ViewModels
 
 
         #region イベント
+
+        /// <summary>
+        /// お気に入り登録
+        /// </summary>
+        /// <returns></returns>
         public async Task OnAddPreferenceAsync()
         {
             var model = this.CreateModel();
@@ -79,6 +87,9 @@ namespace ShortSong.ViewModels
 
         #region メソッド
 
+        /// <summary>
+        /// 画面の内容クリア
+        /// </summary>
         public void Clear() 
         {
             this.Uta = string.Empty;
@@ -89,6 +100,10 @@ namespace ShortSong.ViewModels
             this.Memo = string.Empty;
         }
 
+        /// <summary>
+        /// モデル情報をセット
+        /// </summary>
+        /// <returns></returns>
         public PreferenceAddModel CreateModel()
         {
             PreferenceAddModel model = new PreferenceAddModel();

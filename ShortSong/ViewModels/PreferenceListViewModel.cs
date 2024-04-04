@@ -1,15 +1,14 @@
 ﻿using BLayer.DataModel;
-using BLayer.Logics;
-using DLayer.Models;
-using DLayer.Services;
 using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 using ShortSong.Common;
-using System.ComponentModel;
 
 namespace ShortSong.ViewModels
 {
+    /// <summary>
+    /// お気に入り一覧画面ビューモデル
+    /// </summary>
     public class PreferenceListViewModel:ComponentBase
     {
 
