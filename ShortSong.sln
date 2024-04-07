@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenBLayer", "Gen\GenBLayer\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenFront", "Gen\GenFront\GenFront.csproj", "{E89E2229-0C70-437F-AEA4-218165964A6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceMaker", "Gen\InterfaceMaker\InterfaceMaker.csproj", "{0B9CFDAA-8062-4CD8-9F49-D121ABF46C3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{E89E2229-0C70-437F-AEA4-218165964A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E89E2229-0C70-437F-AEA4-218165964A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E89E2229-0C70-437F-AEA4-218165964A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B9CFDAA-8062-4CD8-9F49-D121ABF46C3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B9CFDAA-8062-4CD8-9F49-D121ABF46C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B9CFDAA-8062-4CD8-9F49-D121ABF46C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B9CFDAA-8062-4CD8-9F49-D121ABF46C3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{86942066-49B9-4ABE-AE46-B70290BFAC1F} = {68F1CB32-0FB2-4310-AB60-C2B0453D6B8A}
 		{E89E2229-0C70-437F-AEA4-218165964A6F} = {68F1CB32-0FB2-4310-AB60-C2B0453D6B8A}
+		{0B9CFDAA-8062-4CD8-9F49-D121ABF46C3F} = {68F1CB32-0FB2-4310-AB60-C2B0453D6B8A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9098F82F-0917-4F9A-B033-74457E732A24}
