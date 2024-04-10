@@ -42,7 +42,7 @@ namespace InterfaceMaker.T4
             
             #line default
             #line hidden
-            this.Write("\r\n    {\r\n    ");
+            this.Write("DataModel\r\n    {\r\n    ");
             
             #line 15 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
 foreach(var p in MaterialDataModel.Propertys){

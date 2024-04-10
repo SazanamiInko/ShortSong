@@ -16,9 +16,9 @@
     <None Update="setting.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="T4\ClientDataModelMaker.T4tt">
+    <None Update="T4\ClientDataModelMakerT4.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ClientDataModelMaker.cs</LastGenOutput>
+      <LastGenOutput>ClientDataModelMakerT4.cs</LastGenOutput>
     </None>
     <None Update="T4\InterfaceMakerT4.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
@@ -35,10 +35,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="T4\ClientDataModelMaker.cs">
+    <Compile Update="T4\ClientDataModelMakerT4.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ClientDataModelMaker.T4tt</DependentUpon>
+      <DependentUpon>ClientDataModelMakerT4.tt</DependentUpon>
     </Compile>
     <Compile Update="T4\interfaceMakerT4.cs">
       <DesignTime>True</DesignTime>

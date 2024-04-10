@@ -42,7 +42,7 @@ namespace InterfaceMaker.T4
             
             #line default
             #line hidden
-            this.Write(":I");
+            this.Write("DataModel:I");
             
             #line 12 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ServerDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.ClassName));

@@ -10,7 +10,7 @@ namespace Interfaces.DataModels
     /// <summary>
     ///  <#=MaterialDataModel.Comment#>
     /// </summary>
-    public interface I<#=MaterialDataModel.ClassName#>
+    public interface I<#=MaterialDataModel.ClassName#>DataModel
     {
     <#foreach(var p in MaterialDataModel.Propertys){#>
     

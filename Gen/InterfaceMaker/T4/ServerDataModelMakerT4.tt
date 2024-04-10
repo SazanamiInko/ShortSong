@@ -9,7 +9,7 @@ namespace BLayer.DataModel
    /// <summary>
     ///  <#=MaterialDataModel.Comment#>
     /// </summary>
-    public class Server<#=MaterialDataModel.ClassName#>:I<#=MaterialDataModel.ClassName#>
+    public class Server<#=MaterialDataModel.ClassName#>DataModel:I<#=MaterialDataModel.ClassName#>
      {
      #region プロパティ
     <#foreach(var p in MaterialDataModel.Propertys){#>

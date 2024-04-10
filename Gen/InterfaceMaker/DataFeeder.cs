@@ -1,11 +1,5 @@
 ﻿using ClosedXML.Excel;
-using DocumentFormat.OpenXml.EMMA;
 using InterfaceMaker.DataModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InterfaceMaker
 {
@@ -22,10 +16,10 @@ namespace InterfaceMaker
         public static MaterialDataModel CreateMaterial(string path)
         {
             const int PROPERTY_START = 17;
-            const int COMMENT_ROW = 5;
+            const int COMMENT_ROW = 4;
             const string COMMENT_COL = "AA";
 
-            const int CLASS_ROW = 4;
+            const int CLASS_ROW = 5;
             const string CLASS_COL = "AA";
             const string NO_COL = "B";
             const string COMMENT_PROP_COL = "G";
@@ -58,7 +52,7 @@ namespace InterfaceMaker
                 //クラス名をセットする。
                 materialDataModel.ClassName = sheet.Cell(CLASS_ROW, CLASS_COL).Value.ToString();
 
-                //プロパティが定義されてる行い移動
+                //プロパティが定義されてる行に移動
                 row = PROPERTY_START;
 
                 //プロパティの番号がある限り

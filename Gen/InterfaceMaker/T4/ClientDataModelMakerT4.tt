@@ -9,7 +9,7 @@ namespace ShortSong.Data
    /// <summary>
     ///  <#=MaterialDataModel.Comment#>
     /// </summary>
-    public class Client<#=MaterialDataModel.ClassName#>:I<#=MaterialDataModel.ClassName#>
+    public class Client<#=MaterialDataModel.ClassName#>DataModel:I<#=MaterialDataModel.ClassName#>
      {
      #region プロパティ
     <#foreach(var p in MaterialDataModel.Propertys){#>
