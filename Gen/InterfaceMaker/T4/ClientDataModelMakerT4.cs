@@ -28,100 +28,101 @@ namespace InterfaceMaker.T4
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\nnamespace ShortSong.Data\r\n{\r\n   /// <summary>\r\n    ///  ");
+            this.Write("\r\nusing Interfaces.DataModels;\r\n\r\nnamespace ShortSong.Data\r\n{\r\n   /// <summary>\r\n" +
+                    "    ///  ");
             
-            #line 10 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 12 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.Comment));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public class Client");
             
-            #line 12 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 14 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.ClassName));
             
             #line default
             #line hidden
             this.Write("DataModel:I");
             
-            #line 12 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 14 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.ClassName));
             
             #line default
             #line hidden
-            this.Write("\r\n     {\r\n     #region プロパティ\r\n    ");
+            this.Write("DataModel\r\n     {\r\n     #region プロパティ\r\n    ");
             
-            #line 15 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 17 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
 foreach(var p in MaterialDataModel.Propertys){
             
             #line default
             #line hidden
             this.Write("    \r\n    ");
             
-            #line 17 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 19 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
 if(p.IsList||p.IsRead){
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    ///  ");
             
-            #line 19 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 21 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Comment));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 21 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 23 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 21 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 23 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Name));
             
             #line default
             #line hidden
             this.Write("{get;} \r\n    ");
             
-            #line 22 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 24 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
 }else{
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    ///  ");
             
-            #line 24 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 26 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Comment));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 26 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 28 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 26 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 28 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Name));
             
             #line default
             #line hidden
             this.Write("{get;set;} \r\n      ");
             
-            #line 27 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 29 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
 }
             
             #line default
             #line hidden
             this.Write("    ");
             
-            #line 28 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 30 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
 }
             
             #line default
@@ -129,49 +130,49 @@ if(p.IsList||p.IsRead){
             this.Write("    #endregion\r\n\r\n     #region コンストラクタ\r\n     /// <summary>\r\n    ///  コンストラクタ\r\n   " +
                     " /// </summary>\r\n    public  Client");
             
-            #line 35 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 37 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.ClassName));
             
             #line default
             #line hidden
-            this.Write("()\r\n    {\r\n     ");
+            this.Write("DataModel()\r\n    {\r\n     ");
             
-            #line 37 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 39 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
 foreach(var p in MaterialDataModel.Propertys){
             
             #line default
             #line hidden
             this.Write("      ");
             
-            #line 38 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 40 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
 if(p.IsList){
             
             #line default
             #line hidden
             this.Write("      this. ");
             
-            #line 39 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 41 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Name));
             
             #line default
             #line hidden
             this.Write("=new ");
             
-            #line 39 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 41 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Type));
             
             #line default
             #line hidden
             this.Write("();\r\n         ");
             
-            #line 40 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 42 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
 }
             
             #line default
             #line hidden
             this.Write("    ");
             
-            #line 41 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 43 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
 }
             
             #line default

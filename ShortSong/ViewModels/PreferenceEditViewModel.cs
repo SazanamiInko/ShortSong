@@ -2,8 +2,10 @@
 using BLayer.Logics;
 using DLayer.Services;
 using FLayer;
+using Interfaces.DataModels;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
+using ShortSong.Data;
 
 namespace ShortSong.ViewModels
 {
@@ -122,7 +124,7 @@ namespace ShortSong.ViewModels
         /// </summary>
         /// <param name="target"></param>
         /// <exception cref="NotImplementedException"></exception>
-        private void CopyContent(PreferenceUpdateModel target)
+        private void CopyContent(IPreferenceUpdateDataModel target)
         {
             this.Uta = target.Uta;
             this.Author = target.Author;
@@ -136,9 +138,9 @@ namespace ShortSong.ViewModels
         /// お気に入り更新
         /// </summary>
         /// <returns></returns>
-        private PreferenceUpdateModel CreateModel()
+        private ClientPreferenceUpdateDataModel CreateModel()
         {
-            var model = new PreferenceUpdateModel();
+            var model = new ClientPreferenceUpdateDataModel();
             model.Id= Convert.ToInt32(this.Id);
             model.Uta= this.Uta;
             model.Author = this.Author;

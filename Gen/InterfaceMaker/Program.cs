@@ -8,6 +8,9 @@ using System.Text.Json;
 string workFolder = string.Empty;
 string outputFolder = string.Empty;
 
+try
+{ 
+Console.Out.WriteLine( "データモデルのソースを自動作成します");
 
 //設定ファイルの読み込み
 using (var fs=File.OpenRead("./setting.json"))
@@ -31,8 +34,9 @@ using (var fs=File.OpenRead("./setting.json"))
 
     }
 }
-
-if(string.IsNullOrEmpty(workFolder))
+Console.Out.WriteLine("設定ファイルを読み込みました");
+Console.Out.WriteLine("環境チェック");
+if (string.IsNullOrEmpty(workFolder))
 {
     throw new Exception("作業フォルダが設定されてません");
 }
@@ -46,12 +50,19 @@ if(!Directory.Exists(workFolder))
 {
     throw new Exception("作業フォルダがありません");
 }
+Console.Out.WriteLine("環境チェック終了");
 
 
 //作業フォルダからファイル一覧を取得する
 DirectoryInfo dirInfo = new DirectoryInfo(workFolder);
 var defines=dirInfo.GetFiles("*.xlsx");
 
+Console.Out.WriteLine("以下のファイルのソースを自動作成します");
+foreach (var define in defines)
+{
+    Console.Out.WriteLine(define.Name);
+}
+Console.Out.WriteLine("");
 //出力の準備をする
 PathUtil.InitilizeOutputs(outputFolder);
 
@@ -70,7 +81,12 @@ foreach (var define in defines)
     }   
 
 }
-
+}
+catch(Exception ex)
+{
+    Console.Out.WriteLine(ex.Message);
+    Console.Out.WriteLine("自動作成に失敗しました");
+}
 
 
 

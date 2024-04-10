@@ -1,12 +1,13 @@
+using Interfaces.DataModels;
 
-namespace Interfaces.DataModels
+namespace BLayer.DataModel
 {
-
     /// <summary>
     ///  短歌一覧用
     /// </summary>
-    public interface IShortSongIndexDataModel
+    public class ServerShortSongIndexDataModel : IShortSongIndexDataModel
     {
+        #region プロパティ
 
         /// <summary>
         ///  管理番号
@@ -22,6 +23,16 @@ namespace Interfaces.DataModels
         ///  見出し
         /// </summary>
         public string Index { get; set; }
+        #endregion
+
+        #region コンストラクタ
+        /// <summary>
+        ///  コンストラクタ
+        /// </summary>
+        public ServerShortSongIndexDataModel()
+        {
+        }
+        #endregion
 
     }
 }

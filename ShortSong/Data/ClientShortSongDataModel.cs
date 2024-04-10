@@ -1,12 +1,13 @@
+using Interfaces.DataModels;
 
-namespace Interfaces.DataModels
+namespace ShortSong.Data
 {
-
     /// <summary>
     ///  短歌
     /// </summary>
-    public interface IShortSongDataModel
+    public class ClientShortSongDataModel : IShortSongDataModel
     {
+        #region プロパティ
 
         /// <summary>
         ///  管理番号
@@ -62,6 +63,15 @@ namespace Interfaces.DataModels
         ///  本歌
         /// </summary>
         public string RefUta { get; set; }
+        #endregion
 
+        #region コンストラクタ
+        /// <summary>
+        ///  コンストラクタ
+        /// </summary>
+        public ClientShortSongDataModel()
+        {
+        }
+        #endregion
     }
 }

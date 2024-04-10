@@ -1,7 +1,9 @@
 ﻿using BLayer.DataModel;
 using FLayer;
+using Interfaces.DataModels;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
+using ShortSong.Data;
 
 namespace ShortSong.ViewModels
 {
@@ -84,7 +86,7 @@ namespace ShortSong.ViewModels
         /// <summary>
         /// 季節マスタ
         /// </summary>
-        public List<SeazonModel> Seazons { get; }
+        public List<ISeazonDataModel> Seazons { get; }
         #endregion
 
         #region サービス
@@ -113,7 +115,7 @@ namespace ShortSong.ViewModels
         public ShortSongEditViewModel()
         {
 
-            this.Seazons = new List<SeazonModel>();
+            this.Seazons = new List<ISeazonDataModel>();
         }
 
         #endregion
@@ -165,7 +167,7 @@ namespace ShortSong.ViewModels
         /// モデル転写
         /// </summary>
         /// <param name="model">転写するモデル</param>
-        private void CopyContent(ShortSongUpdateModel model)
+        private void CopyContent(IShortSongUpdateDataModel model)
         {
             this.Id = model.Id.ToString();
             this.Shortsong1 = model.Uta;
@@ -183,9 +185,9 @@ namespace ShortSong.ViewModels
         /// 短歌更新
         /// </summary>
         /// <returns></returns>
-        private ShortSongUpdateModel CreateModel()
+        private ClientShortSongUpdateDataModel CreateModel()
         {
-            var model = new ShortSongUpdateModel();
+            var model = new ClientShortSongUpdateDataModel();
 
             model.Id = Convert.ToInt64(Id);
             model.Uta = this.Shortsong1;

@@ -4,12 +4,14 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 
+using Interfaces.DataModels;
+
 namespace BLayer.DataModel
 {
    /// <summary>
     ///  <#=MaterialDataModel.Comment#>
     /// </summary>
-    public class Server<#=MaterialDataModel.ClassName#>DataModel:I<#=MaterialDataModel.ClassName#>
+    public class Server<#=MaterialDataModel.ClassName#>DataModel:I<#=MaterialDataModel.ClassName#>DataModel
      {
      #region プロパティ
     <#foreach(var p in MaterialDataModel.Propertys){#>
@@ -32,7 +34,7 @@ namespace BLayer.DataModel
      /// <summary>
     ///  コンストラクタ
     /// </summary>
-    public  Server<#=MaterialDataModel.ClassName#>()
+    public  Server<#=MaterialDataModel.ClassName#>DataModel()
     {
      <#foreach(var p in MaterialDataModel.Propertys){#>
       <#if(p.IsList){#>

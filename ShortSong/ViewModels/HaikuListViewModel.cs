@@ -1,5 +1,6 @@
 ﻿using BLayer.DataModel;
 using FLayer;
+using Interfaces.DataModels;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 using ShortSong.Common;
@@ -22,7 +23,7 @@ namespace ShortSong.ViewModels
         /// <summary>
         /// お気に入り一覧
         /// </summary>
-        public List<HaikuSimple> Haikus { get; set; }
+        public List<IHaikuIndexDataModel> Haikus { get; set; }
 
         #endregion
 
@@ -50,7 +51,7 @@ namespace ShortSong.ViewModels
         /// </summary>
         public HaikuListViewModel()
         {
-            this.Haikus = new List<HaikuSimple>();
+            this.Haikus = new List<IHaikuIndexDataModel>();
         }
 
         #endregion

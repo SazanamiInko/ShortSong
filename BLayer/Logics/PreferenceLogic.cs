@@ -2,6 +2,7 @@
 using BLayer.DataModel;
 using DLayer.Interfacrs;
 using DLayer.Models;
+using Interfaces.DataModels;
 
 namespace BLayer.Logics
 {
@@ -25,11 +26,11 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="model">お気に入りモデル</param>
         /// <returns>成功した場合true</returns>
-        public bool AddPreference(PreferenceAddModel model)
+        public bool AddPreference(IPreferenceDataModel model)
         {
             try
             {
-                var config = new MapperConfiguration(cfg => { cfg.CreateMap<PreferenceAddModel, TPreference>(); });
+                var config = new MapperConfiguration(cfg => { cfg.CreateMap<IPreferenceDataModel, TPreference>(); });
                 Mapper map = new Mapper(config);
 
                 var record = map.Map<TPreference>(model);
@@ -50,11 +51,11 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        public List<PreferenceSimpleModel> GetPreferences(string keyword)
+        public List<IPreferenceIndexDataModel> GetPreferences(string keyword)
         {
-            List<PreferenceSimpleModel> ret = new List<PreferenceSimpleModel>();
+            List<IPreferenceIndexDataModel> ret = new List<IPreferenceIndexDataModel>();
 
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<TPreference, PreferenceSimpleModel>(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<TPreference, ServerPreferenceIndexDataModel>(); });
             Mapper map = new Mapper(config);
 
 
@@ -63,7 +64,7 @@ namespace BLayer.Logics
                 .ToList()
                 .ForEach(record =>
                 {
-                    var newRecord = map.Map<PreferenceSimpleModel>(record);
+                    var newRecord = map.Map<ServerPreferenceIndexDataModel>(record);
                     ret.Add(newRecord);
                 });
 
@@ -76,9 +77,9 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="model">お気に入りモデル</param>
         /// <returns></returns>
-        public bool UpdatePregerence(PreferenceUpdateModel model)
+        public bool UpdatePregerence(IPreferenceUpdateDataModel model)
         {
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<PreferenceUpdateModel, TPreference>(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<IPreferenceUpdateDataModel, TPreference>(); });
             Mapper map = new Mapper(config);
 
             try
@@ -136,9 +137,9 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public PreferenceUpdateModel GetPreference(long id)
+        public IPreferenceUpdateDataModel GetPreference(long id)
         {
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<TPreference, PreferenceUpdateModel>(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<TPreference, ServerPreferenceUpdateDataModel>(); });
             Mapper map = new Mapper(config);
 
 
@@ -146,10 +147,10 @@ namespace BLayer.Logics
                 .FirstOrDefault();
             if (target == null)
             {
-                return new PreferenceUpdateModel();
+                return new ServerPreferenceUpdateDataModel();
             }
 
-            return map.Map<PreferenceUpdateModel>(target);
+            return map.Map<ServerPreferenceUpdateDataModel>(target);
 
         }
         #endregion

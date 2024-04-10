@@ -7,66 +7,66 @@ namespace Interfaces.DataModels
     /// </summary>
     public interface IHaikuUpdateDataModel
     {
-        
+
         /// <summary>
-    ///  管理番号
-    /// </summary>
-    public long ID{get;set;} 
-              
+        ///  管理番号
+        /// </summary>
+        public long Id { get; set; }
+
         /// <summary>
-    ///  前書き
-    /// </summary>
-    public string Front{get;set;} 
-              
+        ///  前書き
+        /// </summary>
+        public string Front { get; set; }
+
         /// <summary>
-    ///  俳句
-    /// </summary>
-    public string Haiku{get;set;} 
-              
+        ///  俳句
+        /// </summary>
+        public string Haiku { get; set; }
+
         /// <summary>
-    ///  かな
-    /// </summary>
-    public string Kana{get;set;} 
-              
+        ///  かな
+        /// </summary>
+        public string Kana { get; set; }
+
         /// <summary>
-    ///  英語
-    /// </summary>
-    public string English{get;set;} 
-              
+        ///  英語
+        /// </summary>
+        public string English { get; set; }
+
         /// <summary>
-    ///  季語
-    /// </summary>
-    public string seazonWord{get;set;} 
-              
+        ///  季語
+        /// </summary>
+        public string SeazonWord { get; set; }
+
         /// <summary>
-    ///  季節
-    /// </summary>
-    public long Seazon{get;set;} 
-              
+        ///  季節
+        /// </summary>
+        public long Seazon { get; set; }
+
         /// <summary>
-    ///  見出し
-    /// </summary>
-    public string Index{get;set;} 
-              
+        ///  見出し
+        /// </summary>
+        public string Index { get; set; }
+
         /// <summary>
-    ///  備考
-    /// </summary>
-    public string Memo{get;set;} 
-              
+        ///  備考
+        /// </summary>
+        public string Memo { get; set; }
+
         /// <summary>
-    ///  更新日時
-    /// </summary>
-    public string UpdateDate{get;set;} 
-              
+        ///  更新日時
+        /// </summary>
+        public string UpdateDate { get; set; }
+
         /// <summary>
-    ///  更新回数
-    /// </summary>
-    public long UpdateCount{get;set;} 
-              
+        ///  更新回数
+        /// </summary>
+        public long UpdateCount { get; set; }
+
         /// <summary>
-    ///  コメント
-    /// </summary>
-    public string Comment{get;set;} 
-          
+        ///  コメント
+        /// </summary>
+        public string Comment { get; set; }
+
     }
 }

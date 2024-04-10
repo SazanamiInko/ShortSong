@@ -1,6 +1,7 @@
 ﻿using BLayer.DataModel;
 using BLayer.Logics;
 using DLayer.Services;
+using Interfaces.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,7 +80,7 @@ namespace FLayer
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public static bool AddHaiku(HaikuModel model)
+        public static bool AddHaiku(IHaikuDataModel model)
         {
             return haikuLogic.AddHaiku(model);
         }
@@ -89,7 +90,7 @@ namespace FLayer
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        public static List<HaikuSimple> GetHaikus(string keyword)
+        public static List<IHaikuIndexDataModel> GetHaikus(string keyword)
         {
             return haikuLogic.GetHaikus(keyword);
         }
@@ -109,7 +110,7 @@ namespace FLayer
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static HaikuModel GetHaiku(long id)
+        public static IHaikuDataModel GetHaiku(long id)
         {
             return haikuLogic.GetHaiku(id);
         }
@@ -119,7 +120,7 @@ namespace FLayer
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public static bool UpdateHaiku(HaikuUpdateModel model)
+        public static bool UpdateHaiku(IHaikuUpdateDataModel model)
         {
             return haikuLogic.UpdateHaiku(model);
         }
@@ -129,7 +130,7 @@ namespace FLayer
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public static bool AddPreference(PreferenceAddModel model)
+        public static bool AddPreference(IPreferenceDataModel model)
         {
             return preferenceLogic.AddPreference(model);
         }
@@ -149,7 +150,7 @@ namespace FLayer
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public static bool UpdatePregerence(PreferenceUpdateModel model)
+        public static bool UpdatePregerence(IPreferenceUpdateDataModel model)
         {
             return preferenceLogic.UpdatePregerence(model);
         }
@@ -159,7 +160,7 @@ namespace FLayer
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static PreferenceUpdateModel GetPreference(long id)
+        public static IPreferenceUpdateDataModel GetPreference(long id)
         {
             return preferenceLogic.GetPreference(id);
         }
@@ -169,7 +170,7 @@ namespace FLayer
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        public static List<PreferenceSimpleModel> GetPreferences(string keyword)
+        public static List<IPreferenceIndexDataModel> GetPreferences(string keyword)
         {
             return preferenceLogic.GetPreferences(keyword);
         }
@@ -178,7 +179,7 @@ namespace FLayer
         /// 季節マスタ取得
         /// </summary>
         /// <returns></returns>
-        public static List<SeazonModel> GetSeazons()
+        public static List<ISeazonDataModel> GetSeazons()
         {
             return seazonLogic.GetSeazons();
         }
@@ -188,7 +189,7 @@ namespace FLayer
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public static bool AddShortSong(ShortSongModel model)
+        public static bool AddShortSong(IShortSongDataModel model)
         {
             return shortSongLogic.AddShortSong(model);
         }
@@ -198,7 +199,7 @@ namespace FLayer
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public static bool UpdateShortSong(ShortSongUpdateModel model)
+        public static bool UpdateShortSong(IShortSongUpdateDataModel model)
         {
             return shortSongLogic.UpdateShortSong(model);
         }
@@ -208,7 +209,7 @@ namespace FLayer
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        public static List<ShortSongSimple> GetShortSongs(string keyword)
+        public static List<IShortSongIndexDataModel> GetShortSongs(string keyword)
         {
             return shortSongLogic.GetShortSongs(keyword);
         }
@@ -228,7 +229,7 @@ namespace FLayer
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static ShortSongUpdateModel GetShortSong(long id)
+        public static IShortSongUpdateDataModel GetShortSong(long id)
         {
             return shortSongLogic.GetShortSong(id);
         }

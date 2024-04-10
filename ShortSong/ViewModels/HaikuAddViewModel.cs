@@ -1,7 +1,9 @@
 ﻿using BLayer.DataModel;
 using FLayer;
+using Interfaces.DataModels;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
+using ShortSong.Data;
 
 namespace ShortSong.ViewModels
 {
@@ -83,7 +85,7 @@ namespace ShortSong.ViewModels
         /// <summary>
         /// 季節マスタ
         /// </summary>
-        public List<SeazonModel> Seazons { get; }
+        public List<ISeazonDataModel> Seazons { get; }
 
         #endregion
 
@@ -106,7 +108,7 @@ namespace ShortSong.ViewModels
         public HaikuAddViewModel()
         {
             AddUnEnable = false;
-            this.Seazons = new List<SeazonModel>();
+            this.Seazons = new List<ISeazonDataModel>();
         }
 
         #endregion
@@ -174,12 +176,12 @@ namespace ShortSong.ViewModels
         /// データモデル作成
         /// </summary>
         /// <returns>データモデル</returns>
-        private HaikuModel CreateDataModel()
+        private ClientHaikuDataModel CreateDataModel()
         {
           ;
 
             //俳句モデルの作成
-            HaikuModel model = new HaikuModel();
+            ClientHaikuDataModel model = new ClientHaikuDataModel();
             //ID番号の発行
             model.Id = FrontAPI.PublishedHaikuId();
 

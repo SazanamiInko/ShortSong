@@ -2,6 +2,7 @@
 using BLayer.DataModel;
 using DLayer.Interfacrs;
 using DLayer.Models;
+using Interfaces.DataModels;
 
 namespace BLayer.Logics
 {
@@ -25,17 +26,17 @@ namespace BLayer.Logics
         /// 季節を取得
         /// </summary>
         /// <returns></returns>
-        public List<SeazonModel> GetSeazons()
+        public List<ISeazonDataModel> GetSeazons()
         {
-            List<SeazonModel> seazons = new List<SeazonModel>();
+            List<ISeazonDataModel> seazons = new List<ISeazonDataModel>();
 
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<MSeazon, SeazonModel>(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<MSeazon, ServerSeazonDataModel>(); });
             Mapper map = new Mapper(config);
 
             Context.GetSeazons().ToList()
                             .ForEach(record =>
                             {
-                                var newRec = map.Map<SeazonModel>(record);
+                                var newRec = map.Map<ServerSeazonDataModel>(record);
                                 seazons.Add(newRec);
                             });
 

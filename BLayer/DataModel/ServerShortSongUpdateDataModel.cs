@@ -1,12 +1,13 @@
+using Interfaces.DataModels;
 
-namespace Interfaces.DataModels
+namespace BLayer.DataModel
 {
-
     /// <summary>
-    ///  短歌
+    ///  短歌更新用
     /// </summary>
-    public interface IShortSongDataModel
+    public class ServerShortSongUpdateDataModel : IShortSongUpdateDataModel
     {
+        #region プロパティ
 
         /// <summary>
         ///  管理番号
@@ -49,19 +50,34 @@ namespace Interfaces.DataModels
         public long Seazon { get; set; }
 
         /// <summary>
-        ///  登録日時
-        /// </summary>
-        public string CreateDate { get; set; }
-
-        /// <summary>
-        ///  削除フラグ
-        /// </summary>
-        public long Delete { get; set; }
-
-        /// <summary>
         ///  本歌
         /// </summary>
         public string RefUta { get; set; }
+
+        /// <summary>
+        ///  更新日時
+        /// </summary>
+        public string UpdateDate { get; set; }
+
+        /// <summary>
+        ///  更新回数
+        /// </summary>
+        public long UpdateCount { get; set; }
+
+        /// <summary>
+        ///  コメント
+        /// </summary>
+        public string Comment { get; set; }
+        #endregion
+
+        #region コンストラクタ
+        /// <summary>
+        ///  コンストラクタ
+        /// </summary>
+        public ServerShortSongUpdateDataModel()
+        {
+        }
+        #endregion
 
     }
 }

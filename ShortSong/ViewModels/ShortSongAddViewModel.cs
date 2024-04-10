@@ -1,8 +1,10 @@
 ﻿
 using BLayer.DataModel;
 using FLayer;
+using Interfaces.DataModels;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
+using ShortSong.Data;
 
 namespace ShortSong.ViewModels
 {
@@ -81,7 +83,7 @@ namespace ShortSong.ViewModels
         /// <summary>
         /// 季節マスタ
         /// </summary>
-        public List<SeazonModel> Seazons { get; }
+        public List<ISeazonDataModel> Seazons { get; }
 
         #endregion
 
@@ -104,7 +106,7 @@ namespace ShortSong.ViewModels
         public ShortSongAddViewModel()
         {
             AddUnEnable = false;
-            this.Seazons = new List<SeazonModel>();
+            this.Seazons = new List<ISeazonDataModel>();
         }
 
         #endregion
@@ -168,10 +170,10 @@ namespace ShortSong.ViewModels
         /// データモデル作成
         /// </summary>
         /// <returns>データモデル</returns>
-        private ShortSongModel CreateDataModel()
+        private ClientShortSongDataModel CreateDataModel()
         {
-          
-            ShortSongModel model = new ShortSongModel();
+
+            ClientShortSongDataModel model = new ClientShortSongDataModel();
             model.Id = FrontAPI.PublishIDShortSong();
             model.Uta = this.Shortsong1;
             model.Kana = this.Kana;

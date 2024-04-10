@@ -1,12 +1,13 @@
+using Interfaces.DataModels;
 
-namespace Interfaces.DataModels
+namespace ShortSong.Data
 {
-
     /// <summary>
     ///  お気に入り一覧用
     /// </summary>
-    public interface IPreferenceIndexDataModel
+    public class ClientPreferenceIndexDataModel : IPreferenceIndexDataModel
     {
+        #region プロパティ
 
         /// <summary>
         ///  管理番号
@@ -22,6 +23,15 @@ namespace Interfaces.DataModels
         ///  作者
         /// </summary>
         public string Auther { get; set; }
+        #endregion
 
+        #region コンストラクタ
+        /// <summary>
+        ///  コンストラクタ
+        /// </summary>
+        public ClientPreferenceIndexDataModel()
+        {
+        }
+        #endregion
     }
 }

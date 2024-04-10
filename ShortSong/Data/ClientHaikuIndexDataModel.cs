@@ -1,12 +1,13 @@
+using Interfaces.DataModels;
 
-namespace Interfaces.DataModels
+namespace ShortSong.Data
 {
-
     /// <summary>
     ///  俳句一覧用
     /// </summary>
-    public interface IHaikuIndexDataModel
+    public class ClientHaikuIndexDataModel : IHaikuIndexDataModel
     {
+        #region プロパティ
 
         /// <summary>
         ///  管理番号
@@ -22,6 +23,15 @@ namespace Interfaces.DataModels
         ///  見出し
         /// </summary>
         public string Index { get; set; }
+        #endregion
 
+        #region コンストラクタ
+        /// <summary>
+        ///  コンストラクタ
+        /// </summary>
+        public ClientHaikuIndexDataModel()
+        {
+        }
+        #endregion
     }
 }

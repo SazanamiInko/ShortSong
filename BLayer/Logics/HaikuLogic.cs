@@ -2,6 +2,7 @@
 using BLayer.DataModel;
 using DLayer.Interfacrs;
 using DLayer.Models;
+using Interfaces.DataModels;
 
 namespace BLayer.Logics
 {
@@ -26,7 +27,7 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="model">俳句登録モデル</param>
         /// <returns>俳句登録できた場合はtrue</returns>
-        public bool AddHaiku(HaikuModel model)
+        public bool AddHaiku(IHaikuDataModel model)
         {
 
             if (Context == null)
@@ -34,7 +35,7 @@ namespace BLayer.Logics
                 throw new Exception("システム例外が発生しました");
             }
 
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<HaikuModel, THaiku>(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<IHaikuDataModel, THaiku>(); });
             Mapper map = new Mapper(config);
             try
             {
@@ -80,16 +81,16 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="keyword">キーワード</param>
         /// <returns>俳句一覧</returns>
-        public List<HaikuSimple> GetHaikus(string keyword)
+        public List<IHaikuIndexDataModel> GetHaikus(string keyword)
         {
             if (Context == null)
             {
                 throw new Exception("システム例外が発生しました");
             }
 
-            List<HaikuSimple> haikus = new List<HaikuSimple>();
+            List<IHaikuIndexDataModel> haikus = new List<IHaikuIndexDataModel>();
 
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<THaiku, HaikuSimple>(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<THaiku, ServerHaikuIndexDataModel>(); });
             Mapper map = new Mapper(config);
 
 
@@ -100,7 +101,7 @@ namespace BLayer.Logics
                .ForEach(record =>
                {
 
-                   var newRec = map.Map<HaikuSimple>(record);
+                   var newRec = map.Map<ServerHaikuIndexDataModel>(record);
                    haikus.Add(newRec);
                });
 
@@ -143,15 +144,15 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="id">Id</param>
         /// <returns>俳句</returns>
-        public HaikuModel GetHaiku(long id)
+        public IHaikuDataModel GetHaiku(long id)
         {
             if (Context == null)
             {
                 throw new Exception("システム例外が発生しました");
             }
 
-            HaikuModel ret = new HaikuModel();
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<THaiku, HaikuModel>(); });
+            ServerHaikuDataModel ret = new ServerHaikuDataModel();
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<THaiku, ServerHaikuDataModel>(); });
             Mapper map = new Mapper(config);
 
             var record = Context.GetHaikus().Where(record => record.Id == id)
@@ -159,7 +160,7 @@ namespace BLayer.Logics
 
             if (record != null)
             {
-                return map.Map<HaikuModel>(record);
+                return map.Map<ServerHaikuDataModel>(record);
             }
             return null;
 
@@ -170,7 +171,7 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public bool UpdateHaiku(HaikuUpdateModel model)
+        public bool UpdateHaiku(IHaikuUpdateDataModel model)
         {
             if (Context == null)
             {
@@ -178,7 +179,7 @@ namespace BLayer.Logics
             }
 
 
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<HaikuUpdateModel, THaiku>(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<IHaikuUpdateDataModel, THaiku>(); });
             Mapper map = new Mapper(config);
             try
             {

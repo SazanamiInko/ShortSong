@@ -2,6 +2,7 @@
 using BLayer.DataModel;
 using DLayer.Interfacrs;
 using DLayer.Models;
+using Interfaces.DataModels;
 
 namespace BLayer.Logics
 {
@@ -42,10 +43,10 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public bool AddShortSong(ShortSongModel model)
+        public bool AddShortSong(IShortSongDataModel model)
         {
 
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<ShortSongModel, TShortSong>(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<IShortSongDataModel, TShortSong>(); });
             Mapper map = new Mapper(config);
             try
             {
@@ -68,10 +69,10 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public bool UpdateShortSong(ShortSongUpdateModel model)
+        public bool UpdateShortSong(IShortSongUpdateDataModel model)
         {
 
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<ShortSongUpdateModel, TShortSong>(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<IShortSongUpdateDataModel, TShortSong>(); });
             Mapper map = new Mapper(config);
             try
             {
@@ -113,11 +114,11 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        public List<ShortSongSimple> GetShortSongs(string keyword)
+        public List<IShortSongIndexDataModel> GetShortSongs(string keyword)
         {
-            List<ShortSongSimple> songs = new List<ShortSongSimple>();
+            List<IShortSongIndexDataModel> songs = new List<IShortSongIndexDataModel>();
 
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<TShortSong, ShortSongSimple>(); });
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<TShortSong, ServerShortSongIndexDataModel>(); });
             Mapper map = new Mapper(config);
 
 
@@ -129,7 +130,7 @@ namespace BLayer.Logics
                .ForEach(record =>
                {
 
-                   var newRec = map.Map<ShortSongSimple>(record);
+                   var newRec = map.Map<ServerShortSongIndexDataModel>(record);
                    songs.Add(newRec);
                });
 
@@ -170,10 +171,10 @@ namespace BLayer.Logics
         /// </summary>
         /// <param name="id">Id</param>
         /// <returns>短歌</returns>
-        public ShortSongUpdateModel GetShortSong(long id)
+        public IShortSongUpdateDataModel GetShortSong(long id)
         {
-            ShortSongUpdateModel ret = new ShortSongUpdateModel();
-            var config = new MapperConfiguration(cfg => { cfg.CreateMap<TShortSong, ShortSongUpdateModel>(); });
+            ServerShortSongUpdateDataModel ret = new ServerShortSongUpdateDataModel();
+            var config = new MapperConfiguration(cfg => { cfg.CreateMap<TShortSong, ServerShortSongUpdateDataModel>(); });
             Mapper map = new Mapper(config);
 
 
@@ -182,7 +183,7 @@ namespace BLayer.Logics
 
             if (record != null)
             {
-                return map.Map<ShortSongUpdateModel>(record);
+                return map.Map<ServerShortSongUpdateDataModel>(record);
             }
             return ret;
 

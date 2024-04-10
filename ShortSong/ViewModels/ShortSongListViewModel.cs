@@ -1,5 +1,6 @@
 ﻿using BLayer.DataModel;
 using FLayer;
+using Interfaces.DataModels;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 
@@ -21,7 +22,7 @@ namespace ShortSong.ViewModels
         /// <summary>
         /// 短歌一覧
         /// </summary>
-        public List<ShortSongSimple> ShortSongs { get; set; }
+        public List<IShortSongIndexDataModel> ShortSongs { get; set; }
         #endregion
 
         #region サービス
@@ -46,7 +47,7 @@ namespace ShortSong.ViewModels
         /// </summary>
         public ShortSongListViewModel()
         {
-            this.ShortSongs = new List<ShortSongSimple>();
+            this.ShortSongs = new List<IShortSongIndexDataModel>();
         }
         #endregion
 

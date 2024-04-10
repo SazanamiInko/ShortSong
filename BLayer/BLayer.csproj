@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DLayer\DLayer.csproj" />
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

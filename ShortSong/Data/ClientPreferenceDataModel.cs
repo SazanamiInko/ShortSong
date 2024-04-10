@@ -1,17 +1,13 @@
+using Interfaces.DataModels;
 
-namespace Interfaces.DataModels
+namespace ShortSong.Data
 {
-
     /// <summary>
-    ///  お気に入り更新用
+    ///  お気に入り
     /// </summary>
-    public interface IPreferenceUpdateDataModel
+    public class ClientPreferenceDataModel : IPreferenceDataModel
     {
-
-        /// <summary>
-        ///  管理番号
-        /// </summary>
-        public long Id { get; set; }
+        #region プロパティ
 
         /// <summary>
         ///  短歌
@@ -44,9 +40,18 @@ namespace Interfaces.DataModels
         public string Memo { get; set; }
 
         /// <summary>
-        ///  更新日時
+        ///  登録日時
         /// </summary>
-        public string UpdateDate { get; set; }
+        public string CreateDate { get; set; }
+        #endregion
 
+        #region コンストラクタ
+        /// <summary>
+        ///  コンストラクタ
+        /// </summary>
+        public ClientPreferenceDataModel()
+        {
+        }
+        #endregion
     }
 }

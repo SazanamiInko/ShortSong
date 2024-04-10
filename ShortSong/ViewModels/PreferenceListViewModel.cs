@@ -1,5 +1,6 @@
 ﻿using BLayer.DataModel;
 using FLayer;
+using Interfaces.DataModels;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 using ShortSong.Common;
@@ -23,7 +24,7 @@ namespace ShortSong.ViewModels
         /// <summary>
         /// お気に入り一覧
         /// </summary>
-        public List<PreferenceSimpleModel> Preferences { get; set; }
+        public List<IPreferenceIndexDataModel> Preferences { get; set; }
 
         #endregion
 
@@ -51,7 +52,7 @@ namespace ShortSong.ViewModels
         /// </summary>
         public PreferenceListViewModel()
         {
-            this.Preferences = new List<PreferenceSimpleModel>();
+            this.Preferences = new List<IPreferenceIndexDataModel>();
         }
 
         #endregion

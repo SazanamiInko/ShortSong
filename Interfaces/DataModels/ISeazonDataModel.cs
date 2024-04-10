@@ -7,16 +7,16 @@ namespace Interfaces.DataModels
     /// </summary>
     public interface ISeazonDataModel
     {
-        
+
         /// <summary>
-    ///  管理番号
-    /// </summary>
-    public long Id{get;set;} 
-              
+        ///  管理番号
+        /// </summary>
+        public long Id { get; set; }
+
         /// <summary>
-    ///  値
-    /// </summary>
-    public String Value{get;set;} 
-          
+        ///  値
+        /// </summary>
+        public string Value { get; set; }
+
     }
 }

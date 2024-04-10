@@ -2,6 +2,7 @@
 using FLayer;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
+using ShortSong.Data;
 
 namespace ShortSong.ViewModels
 {
@@ -104,9 +105,9 @@ namespace ShortSong.ViewModels
         /// モデル情報をセット
         /// </summary>
         /// <returns></returns>
-        public PreferenceAddModel CreateModel()
+        public ClientPreferenceDataModel CreateModel()
         {
-            PreferenceAddModel model = new PreferenceAddModel();
+            ClientPreferenceDataModel model = new ClientPreferenceDataModel();
 
             model.Uta = this.Uta;
             model.Author = this.Author;
