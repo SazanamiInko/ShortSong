@@ -3,16 +3,21 @@
 namespace InterfaceMaker.T4
 {
     /// <summary>
-    /// インタフェース自動生成拡張クラス
+    /// 派生データモデル
     /// </summary>
-    public partial class ClientDataModelMakerT4
+    public partial class InheritedMaker
     {
         #region プロパティ
 
         /// <summary>
         /// 材料
         /// </summary>
-        public MaterialDataModel MaterialDataModel{get; set;}
+        public MaterialDataModel MaterialDataModel { get; set; }
+
+        /// <summary>
+        /// 派生情報モデル
+        /// </summary>
+        public InheritedT4DataModel InheritedT4DataModel { get; set; }
         #endregion
 
         #region コンストラクタ
@@ -20,9 +25,9 @@ namespace InterfaceMaker.T4
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public ClientDataModelMakerT4()
-        {
-            MaterialDataModel = new MaterialDataModel();
+        public InheritedMaker() 
+        { 
+            this.MaterialDataModel = new MaterialDataModel();
         }
 
         #endregion
@@ -35,7 +40,7 @@ namespace InterfaceMaker.T4
         /// <returns></returns>
         public string GetClassName()
         {
-            return $"Client{MaterialDataModel.ClassName}DataModel";              
+            return $"{InheritedT4DataModel.Name}{MaterialDataModel.ClassName}DataModel";
         }
 
 

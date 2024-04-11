@@ -1,4 +1,6 @@
-﻿namespace InterfaceMaker
+﻿using InterfaceMaker.DataModel;
+
+namespace InterfaceMaker
 {
     /// <summary>
     /// 出力フォルダユーティリティ
@@ -24,11 +26,16 @@
         /// 出力パスの初期化
         /// </summary>
         /// <param name="path"></param>
-        public static void InitilizeOutputs(string path)
+        public static void InitilizeOutputs(string path,List<InheritedT4DataModel> T4Infos)
         {
             InitilizeOutput(GetInterfacePath(path));
-            InitilizeOutput(GetClientPath(path));
-            InitilizeOutput(GetServerPath(path));
+           
+            foreach(var info in T4Infos)
+            {
+               string targetPath= Path.Combine(path,info.Name );
+               InitilizeOutput(targetPath);
+            }
+
         }
 
         /// <summary>
@@ -40,6 +47,19 @@
         {
             return Path.Combine(path, "Interface");
         }
+
+        /// <summary>
+        /// 派生クラス出力先
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static string GetInheritedPath(string path,string name)
+        {
+            return Path.Combine(path,name);
+        }
+
+
 
         /// <summary>
         /// クライアント側の出力パスを返す

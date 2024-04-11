@@ -5,7 +5,7 @@ namespace InterfaceMaker.T4
     /// <summary>
     /// インタフェース作成拡張
     /// </summary>
-    public partial class InterfaceMakerT4
+    public partial class InterfaceMaker
     {
         #region プロパティ
 
@@ -21,7 +21,7 @@ namespace InterfaceMaker.T4
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public InterfaceMakerT4()
+        public InterfaceMaker()
         {
             this.MaterialDataModel = new MaterialDataModel();
         }

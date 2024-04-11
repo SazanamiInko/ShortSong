@@ -1,16 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+using DocumentFormat.OpenXml.Wordprocessing;
 using InterfaceMaker;
 using InterfaceMaker.DataModel;
 using System.Text.Json;
 
+
 string workFolder = string.Empty;
 string outputFolder = string.Empty;
-
+SettingDataModel setting;
 try
-{ 
-Console.Out.WriteLine( "データモデルのソースを自動作成します");
+{
+   
+
+    Console.Out.WriteLine( "データモデルのソースを自動作成します");
 
 //設定ファイルの読み込み
 using (var fs=File.OpenRead("./setting.json"))
@@ -22,7 +26,7 @@ using (var fs=File.OpenRead("./setting.json"))
             throw new Exception("設定ファイルが開けません");
         }
 
-        var setting = JsonSerializer.Deserialize<SettingDataModel>(sr.ReadLine());
+        setting = JsonSerializer.Deserialize<SettingDataModel>(sr.ReadLine());
 
         if (setting == null)
         {
@@ -64,7 +68,7 @@ foreach (var define in defines)
 }
 Console.Out.WriteLine("");
 //出力の準備をする
-PathUtil.InitilizeOutputs(outputFolder);
+PathUtil.InitilizeOutputs(outputFolder,setting.T4Infos);
 
 foreach (var define in defines)
 {
@@ -72,7 +76,9 @@ foreach (var define in defines)
     var material = DataFeeder.CreateMaterial(define.FullName);
     Console.Out.WriteLine(material.Comment+"処理中");
 
-    T4PlayerManager manager = new T4PlayerManager(material, outputFolder);
+    T4PlayerManager manager = new T4PlayerManager(material,
+                                                  setting.T4Infos, 
+                                                  outputFolder);
 
     foreach(var player in manager.Players)
     {

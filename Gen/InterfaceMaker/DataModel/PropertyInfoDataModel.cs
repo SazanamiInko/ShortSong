@@ -3,7 +3,7 @@
     /// <summary>
     /// プロパティ情報
     /// </summary>
-    public class PropertyInfo
+    public class PropertyInfoDataModel
     {
         /// <summary>
         /// プロパティ名

@@ -3,15 +3,14 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-
 using Interfaces.DataModels;
 
-namespace ShortSong.Data
+namespace <#=InheritedT4DataModel.NameSpace#>
 {
    /// <summary>
     ///  <#=MaterialDataModel.Comment#>
     /// </summary>
-    public class Client<#=MaterialDataModel.ClassName#>DataModel:I<#=MaterialDataModel.ClassName#>DataModel
+    public class <#=GetClassName()#>:I<#=MaterialDataModel.ClassName#>DataModel
      {
      #region プロパティ
     <#foreach(var p in MaterialDataModel.Propertys){#>
@@ -34,7 +33,7 @@ namespace ShortSong.Data
      /// <summary>
     ///  コンストラクタ
     /// </summary>
-    public  Client<#=MaterialDataModel.ClassName#>DataModel()
+    public <#=GetClassName()#>()
     {
      <#foreach(var p in MaterialDataModel.Propertys){#>
       <#if(p.IsList){#>

@@ -30,12 +30,18 @@ namespace InterfaceMaker
         /// </summary>
         /// <param name="matrerial"></param>
         /// <param name="outpath"></param>
-        public T4PlayerManager(MaterialDataModel matrerial,string outpath)
+        public T4PlayerManager(MaterialDataModel matrerial,
+                               List<InheritedT4DataModel> inheritedT4DataModels,
+                                string outpath
+                               )
         {
             this.Players = new List<IT4Play>();          
             Players.Add(new InterfacePlayer(matrerial, outpath));
-            Players.Add(new ClientPlayer(matrerial, outpath));
-            Players.Add(new ServerPlayer(matrerial, outpath));
+           
+            foreach(var inheritedT4DataModel in inheritedT4DataModels)
+            {
+                Players.Add(new InheritedPlayer(matrerial,inheritedT4DataModel, outpath));
+            }
         }
 
         #endregion

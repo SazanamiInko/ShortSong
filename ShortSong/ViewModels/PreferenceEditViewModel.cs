@@ -1,7 +1,4 @@
-﻿using BLayer.DataModel;
-using BLayer.Logics;
-using DLayer.Services;
-using FLayer;
+﻿using FLayer;
 using Interfaces.DataModels;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
@@ -87,9 +84,8 @@ namespace ShortSong.ViewModels
         {
             long lid = Convert.ToInt64(Id);
 
-            PreferenceLogic logic = new PreferenceLogic();
-            logic.Context = new UtaContextService();
-            var target = logic.GetPreference(lid);
+          
+            var target = FrontAPI.GetPreference(lid);
             this.CopyContent(target);
 
             return base.OnInitializedAsync();

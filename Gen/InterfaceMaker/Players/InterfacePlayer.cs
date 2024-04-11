@@ -1,6 +1,6 @@
 ﻿using InterfaceMaker.DataModel;
 using InterfaceMaker.Interface;
-using InterfaceMaker.T4;
+using T4=InterfaceMaker.T4;
 
 namespace InterfaceMaker.Players
 {
@@ -14,7 +14,7 @@ namespace InterfaceMaker.Players
         /// <summary>
         /// T4エンジン
         /// </summary>
-        private readonly InterfaceMakerT4 t4;
+        private readonly T4.InterfaceMaker t4;
 
         #endregion
 
@@ -32,7 +32,7 @@ namespace InterfaceMaker.Players
         public InterfacePlayer(MaterialDataModel material,
                                string path)
         {
-            this.t4 = new InterfaceMakerT4();
+            this.t4 = new T4.InterfaceMaker();
             t4.MaterialDataModel = material;
             this.path = PathUtil.GetInterfacePath(path);
         }

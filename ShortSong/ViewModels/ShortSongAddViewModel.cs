@@ -1,6 +1,4 @@
-﻿
-using BLayer.DataModel;
-using FLayer;
+﻿using FLayer;
 using Interfaces.DataModels;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;

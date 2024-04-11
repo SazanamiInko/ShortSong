@@ -65,7 +65,7 @@ namespace InterfaceMaker
                         break;
                     }
 
-                    PropertyInfo info = new PropertyInfo();
+                    PropertyInfoDataModel info = new PropertyInfoDataModel();
                     //コメント
                     info.Comment= sheet.Cell(row, COMMENT_PROP_COL).Value.ToString();
                     //型

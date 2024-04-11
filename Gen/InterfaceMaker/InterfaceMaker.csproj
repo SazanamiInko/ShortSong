@@ -16,17 +16,13 @@
     <None Update="setting.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="T4\ClientDataModelMakerT4.tt">
+    <None Update="T4\InheritedMaker.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ClientDataModelMakerT4.cs</LastGenOutput>
+      <LastGenOutput>InheritedMaker.cs</LastGenOutput>
     </None>
-    <None Update="T4\InterfaceMakerT4.tt">
+    <None Update="T4\InterfaceMaker.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>interfaceMakerT4.cs</LastGenOutput>
-    </None>
-    <None Update="T4\ServerDataModelMakerT4.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ServerDataModelMakerT4.cs</LastGenOutput>
+      <LastGenOutput>InterfaceMaker.cs</LastGenOutput>
     </None>
   </ItemGroup>
 
@@ -35,20 +31,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="T4\ClientDataModelMakerT4.cs">
+    <Compile Update="T4\InheritedMaker.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>ClientDataModelMakerT4.tt</DependentUpon>
+      <DependentUpon>InheritedMaker.tt</DependentUpon>
     </Compile>
-    <Compile Update="T4\interfaceMakerT4.cs">
+    <Compile Update="T4\InterfaceMaker.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>InterfaceMakerT4.tt</DependentUpon>
-    </Compile>
-    <Compile Update="T4\ServerDataModelMakerT4.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ServerDataModelMakerT4.tt</DependentUpon>
+      <DependentUpon>InterfaceMaker.tt</DependentUpon>
     </Compile>
   </ItemGroup>
 

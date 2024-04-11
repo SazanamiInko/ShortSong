@@ -20,7 +20,7 @@
         /// <summary>
         /// プロパティリスト
         /// </summary>
-        public List<PropertyInfo> Propertys{ get; }
+        public List<PropertyInfoDataModel> Propertys{ get; }
 
         #endregion
 
@@ -31,7 +31,7 @@
         /// </summary>
         public MaterialDataModel() 
         { 
-            this.Propertys = new List<PropertyInfo>();
+            this.Propertys = new List<PropertyInfoDataModel>();
         }
 
         #endregion

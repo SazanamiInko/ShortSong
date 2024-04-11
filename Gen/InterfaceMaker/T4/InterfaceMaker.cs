@@ -18,9 +18,9 @@ namespace InterfaceMaker.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+    #line 1 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class InterfaceMakerT4 : InterfaceMakerT4Base
+    public partial class InterfaceMaker : InterfaceMakerBase
     {
 #line hidden
         /// <summary>
@@ -30,91 +30,91 @@ namespace InterfaceMaker.T4
         {
             this.Write("\r\nnamespace Interfaces.DataModels\r\n{\r\n\r\n    /// <summary>\r\n    ///  ");
             
-            #line 11 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 11 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.Comment));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public interface I");
             
-            #line 13 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 13 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.ClassName));
             
             #line default
             #line hidden
             this.Write("DataModel\r\n    {\r\n    ");
             
-            #line 15 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 15 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
 foreach(var p in MaterialDataModel.Propertys){
             
             #line default
             #line hidden
             this.Write("    \r\n    ");
             
-            #line 17 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 17 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
 if(p.IsList||p.IsRead){
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    ///  ");
             
-            #line 19 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 19 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Comment));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 21 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 21 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 21 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 21 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Name));
             
             #line default
             #line hidden
             this.Write("{get;} \r\n    ");
             
-            #line 22 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 22 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
 }else{
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    ///  ");
             
-            #line 24 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 24 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Comment));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 26 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 26 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 26 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 26 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Name));
             
             #line default
             #line hidden
             this.Write("{get;set;} \r\n      ");
             
-            #line 27 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 27 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
 }
             
             #line default
             #line hidden
             this.Write("    ");
             
-            #line 28 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMakerT4.tt"
+            #line 28 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InterfaceMaker.tt"
 }
             
             #line default
@@ -131,7 +131,7 @@ if(p.IsList||p.IsRead){
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class InterfaceMakerT4Base
+    public class InterfaceMakerBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;

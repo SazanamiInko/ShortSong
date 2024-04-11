@@ -18,9 +18,9 @@ namespace InterfaceMaker.T4
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+    #line 1 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public partial class ClientDataModelMakerT4 : ClientDataModelMakerT4Base
+    public partial class InheritedMaker : InheritedMakerBase
     {
 #line hidden
         /// <summary>
@@ -28,151 +28,157 @@ namespace InterfaceMaker.T4
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\nusing Interfaces.DataModels;\r\n\r\nnamespace ShortSong.Data\r\n{\r\n   /// <summary>\r\n" +
-                    "    ///  ");
+            this.Write("using Interfaces.DataModels;\r\n\r\nnamespace ");
             
-            #line 12 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 8 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(InheritedT4DataModel.NameSpace));
+            
+            #line default
+            #line hidden
+            this.Write("\r\n{\r\n   /// <summary>\r\n    ///  ");
+            
+            #line 11 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.Comment));
             
             #line default
             #line hidden
-            this.Write("\r\n    /// </summary>\r\n    public class Client");
+            this.Write("\r\n    /// </summary>\r\n    public class ");
             
-            #line 14 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.ClassName));
+            #line 13 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetClassName()));
             
             #line default
             #line hidden
-            this.Write("DataModel:I");
+            this.Write(":I");
             
-            #line 14 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 13 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.ClassName));
             
             #line default
             #line hidden
             this.Write("DataModel\r\n     {\r\n     #region プロパティ\r\n    ");
             
-            #line 17 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 16 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
 foreach(var p in MaterialDataModel.Propertys){
             
             #line default
             #line hidden
             this.Write("    \r\n    ");
             
-            #line 19 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 18 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
 if(p.IsList||p.IsRead){
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    ///  ");
             
-            #line 21 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 20 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Comment));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 23 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 22 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 23 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 22 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Name));
             
             #line default
             #line hidden
             this.Write("{get;} \r\n    ");
             
-            #line 24 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 23 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
 }else{
             
             #line default
             #line hidden
             this.Write("    /// <summary>\r\n    ///  ");
             
-            #line 26 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 25 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Comment));
             
             #line default
             #line hidden
             this.Write("\r\n    /// </summary>\r\n    public ");
             
-            #line 28 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 27 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 28 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 27 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Name));
             
             #line default
             #line hidden
             this.Write("{get;set;} \r\n      ");
             
-            #line 29 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 28 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
 }
             
             #line default
             #line hidden
             this.Write("    ");
             
-            #line 30 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 29 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
 }
             
             #line default
             #line hidden
             this.Write("    #endregion\r\n\r\n     #region コンストラクタ\r\n     /// <summary>\r\n    ///  コンストラクタ\r\n   " +
-                    " /// </summary>\r\n    public  Client");
+                    " /// </summary>\r\n    public ");
             
-            #line 37 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(MaterialDataModel.ClassName));
+            #line 36 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetClassName()));
             
             #line default
             #line hidden
-            this.Write("DataModel()\r\n    {\r\n     ");
+            this.Write("()\r\n    {\r\n     ");
             
-            #line 39 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 38 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
 foreach(var p in MaterialDataModel.Propertys){
             
             #line default
             #line hidden
             this.Write("      ");
             
-            #line 40 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 39 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
 if(p.IsList){
             
             #line default
             #line hidden
             this.Write("      this. ");
             
-            #line 41 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 40 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Name));
             
             #line default
             #line hidden
             this.Write("=new ");
             
-            #line 41 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 40 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(p.Type));
             
             #line default
             #line hidden
             this.Write("();\r\n         ");
             
-            #line 42 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 41 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
 }
             
             #line default
             #line hidden
             this.Write("    ");
             
-            #line 43 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\ClientDataModelMakerT4.tt"
+            #line 42 "C:\Users\PC\source\repos\ShortSong\Gen\InterfaceMaker\T4\InheritedMaker.tt"
 }
             
             #line default
@@ -189,7 +195,7 @@ if(p.IsList){
     /// Base class for this transformation
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
-    public class ClientDataModelMakerT4Base
+    public class InheritedMakerBase
     {
         #region Fields
         private global::System.Text.StringBuilder generationEnvironmentField;
