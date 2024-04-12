@@ -1,11 +1,11 @@
 using Interfaces.DataModels;
 
-namespace BLayer.DataModel
+namespace FrontUT.DataModel
 {
     /// <summary>
-    ///  お気に入り一覧用
+    ///  季節
     /// </summary>
-    public class ServerPreferenceIndexDataModel : IPreferenceIndexDataModel
+    public class TestSeazonDataModel : ISeazonDataModel
     {
         #region プロパティ
 
@@ -15,21 +15,16 @@ namespace BLayer.DataModel
         public long Id { get; set; }
 
         /// <summary>
-        ///  短歌
+        ///  値
         /// </summary>
-        public string Uta { get; set; }
-
-        /// <summary>
-        ///  作者
-        /// </summary>
-        public string Auther { get; set; }
+        public string Value { get; set; }
         #endregion
 
         #region コンストラクタ
         /// <summary>
         ///  コンストラクタ
         /// </summary>
-        public ServerPreferenceIndexDataModel()
+        public TestSeazonDataModel()
         {
         }
         #endregion

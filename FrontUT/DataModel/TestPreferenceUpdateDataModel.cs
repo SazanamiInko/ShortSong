@@ -1,11 +1,11 @@
 using Interfaces.DataModels;
 
-namespace BLayer.DataModel
+namespace FrontUT.DataModel
 {
     /// <summary>
     ///  お気に入り更新用
     /// </summary>
-    public class ServerPreferenceUpdateDataModel : IPreferenceUpdateDataModel
+    public class TestPreferenceUpdateDataModel : IPreferenceUpdateDataModel
     {
         #region プロパティ
 
@@ -54,7 +54,7 @@ namespace BLayer.DataModel
         /// <summary>
         ///  コンストラクタ
         /// </summary>
-        public ServerPreferenceUpdateDataModel()
+        public TestPreferenceUpdateDataModel()
         {
         }
         #endregion

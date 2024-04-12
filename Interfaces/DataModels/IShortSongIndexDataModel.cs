@@ -7,21 +7,21 @@ namespace Interfaces.DataModels
     /// </summary>
     public interface IShortSongIndexDataModel
     {
-
+        
         /// <summary>
-        ///  管理番号
-        /// </summary>
-        public long Id { get; set; }
-
+    ///  管理番号
+    /// </summary>
+    public long Id{get;set;} 
+              
         /// <summary>
-        ///  短歌
-        /// </summary>
-        public string Uta { get; set; }
-
+    ///  短歌
+    /// </summary>
+    public string Uta{get;set;} 
+              
         /// <summary>
-        ///  見出し
-        /// </summary>
-        public string Index { get; set; }
-
+    ///  見出し
+    /// </summary>
+    public string Index{get;set;} 
+          
     }
 }

@@ -7,21 +7,21 @@ namespace Interfaces.DataModels
     /// </summary>
     public interface IPreferenceIndexDataModel
     {
-
+        
         /// <summary>
-        ///  管理番号
-        /// </summary>
-        public long Id { get; set; }
-
+    ///  管理番号
+    /// </summary>
+    public long Id{get;set;} 
+              
         /// <summary>
-        ///  短歌
-        /// </summary>
-        public string Uta { get; set; }
-
+    ///  短歌
+    /// </summary>
+    public string Uta{get;set;} 
+              
         /// <summary>
-        ///  作者
-        /// </summary>
-        public string Auther { get; set; }
-
+    ///  作者
+    /// </summary>
+    public string Auther{get;set;} 
+          
     }
 }

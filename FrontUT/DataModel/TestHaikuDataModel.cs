@@ -1,11 +1,11 @@
 using Interfaces.DataModels;
 
-namespace ShortSong.Data
+namespace FrontUT.DataModel
 {
     /// <summary>
-    ///  俳句更新モデル
+    ///  俳句
     /// </summary>
-    public class ClientHaikuUpdateDataModel : IHaikuUpdateDataModel
+    public class TestHaikuDataModel : IHaikuDataModel
     {
         #region プロパティ
 
@@ -35,9 +35,9 @@ namespace ShortSong.Data
         public string English { get; set; }
 
         /// <summary>
-        ///  季語
+        ///  備考
         /// </summary>
-        public string SeazonWord { get; set; }
+        public string Memo { get; set; }
 
         /// <summary>
         ///  季節
@@ -45,14 +45,19 @@ namespace ShortSong.Data
         public long Seazon { get; set; }
 
         /// <summary>
+        ///  季語
+        /// </summary>
+        public string SeazonWord { get; set; }
+
+        /// <summary>
         ///  見出し
         /// </summary>
         public string Index { get; set; }
 
         /// <summary>
-        ///  備考
+        ///  作成日時
         /// </summary>
-        public string Memo { get; set; }
+        public string CreateDateTime { get; set; }
 
         /// <summary>
         ///  更新日時
@@ -65,16 +70,16 @@ namespace ShortSong.Data
         public long UpdateCount { get; set; }
 
         /// <summary>
-        ///  コメント
+        ///  削除フラグ
         /// </summary>
-        public string Comment { get; set; }
+        public long Delete { get; set; }
         #endregion
 
         #region コンストラクタ
         /// <summary>
         ///  コンストラクタ
         /// </summary>
-        public ClientHaikuUpdateDataModel()
+        public TestHaikuDataModel()
         {
         }
         #endregion

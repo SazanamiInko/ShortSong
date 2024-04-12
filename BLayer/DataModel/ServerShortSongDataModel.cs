@@ -73,6 +73,5 @@ namespace BLayer.DataModel
         {
         }
         #endregion
-
     }
 }

@@ -1,11 +1,11 @@
 using Interfaces.DataModels;
 
-namespace ShortSong.Data
+namespace FrontUT.DataModel
 {
     /// <summary>
     ///  俳句更新モデル
     /// </summary>
-    public class ClientHaikuUpdateDataModel : IHaikuUpdateDataModel
+    public class TestHaikuUpdateDataModel : IHaikuUpdateDataModel
     {
         #region プロパティ
 
@@ -74,7 +74,7 @@ namespace ShortSong.Data
         /// <summary>
         ///  コンストラクタ
         /// </summary>
-        public ClientHaikuUpdateDataModel()
+        public TestHaikuUpdateDataModel()
         {
         }
         #endregion

@@ -1,11 +1,11 @@
 using Interfaces.DataModels;
 
-namespace ShortSong.Data
+namespace FrontUT.DataModel
 {
     /// <summary>
-    ///  俳句更新モデル
+    ///  短歌
     /// </summary>
-    public class ClientHaikuUpdateDataModel : IHaikuUpdateDataModel
+    public class TestShortSongDataModel : IShortSongDataModel
     {
         #region プロパティ
 
@@ -20,9 +20,9 @@ namespace ShortSong.Data
         public string Front { get; set; }
 
         /// <summary>
-        ///  俳句
+        ///  短歌
         /// </summary>
-        public string Haiku { get; set; }
+        public string Uta { get; set; }
 
         /// <summary>
         ///  かな
@@ -35,16 +35,6 @@ namespace ShortSong.Data
         public string English { get; set; }
 
         /// <summary>
-        ///  季語
-        /// </summary>
-        public string SeazonWord { get; set; }
-
-        /// <summary>
-        ///  季節
-        /// </summary>
-        public long Seazon { get; set; }
-
-        /// <summary>
         ///  見出し
         /// </summary>
         public string Index { get; set; }
@@ -55,26 +45,31 @@ namespace ShortSong.Data
         public string Memo { get; set; }
 
         /// <summary>
-        ///  更新日時
+        ///  季節
         /// </summary>
-        public string UpdateDateTime { get; set; }
+        public long Seazon { get; set; }
 
         /// <summary>
-        ///  更新回数
+        ///  登録日時
         /// </summary>
-        public long UpdateCount { get; set; }
+        public string CreateDate { get; set; }
 
         /// <summary>
-        ///  コメント
+        ///  削除フラグ
         /// </summary>
-        public string Comment { get; set; }
+        public long Delete { get; set; }
+
+        /// <summary>
+        ///  本歌
+        /// </summary>
+        public string RefUta { get; set; }
         #endregion
 
         #region コンストラクタ
         /// <summary>
         ///  コンストラクタ
         /// </summary>
-        public ClientHaikuUpdateDataModel()
+        public TestShortSongDataModel()
         {
         }
         #endregion

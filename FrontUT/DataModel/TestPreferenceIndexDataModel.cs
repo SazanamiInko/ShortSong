@@ -1,11 +1,11 @@
 using Interfaces.DataModels;
 
-namespace BLayer.DataModel
+namespace FrontUT.DataModel
 {
     /// <summary>
     ///  お気に入り一覧用
     /// </summary>
-    public class ServerPreferenceIndexDataModel : IPreferenceIndexDataModel
+    public class TestPreferenceIndexDataModel : IPreferenceIndexDataModel
     {
         #region プロパティ
 
@@ -29,7 +29,7 @@ namespace BLayer.DataModel
         /// <summary>
         ///  コンストラクタ
         /// </summary>
-        public ServerPreferenceIndexDataModel()
+        public TestPreferenceIndexDataModel()
         {
         }
         #endregion

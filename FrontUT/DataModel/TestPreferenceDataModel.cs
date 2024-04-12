@@ -1,18 +1,13 @@
 using Interfaces.DataModels;
 
-namespace BLayer.DataModel
+namespace FrontUT.DataModel
 {
     /// <summary>
-    ///  お気に入り更新用
+    ///  お気に入り
     /// </summary>
-    public class ServerPreferenceUpdateDataModel : IPreferenceUpdateDataModel
+    public class TestPreferenceDataModel : IPreferenceDataModel
     {
         #region プロパティ
-
-        /// <summary>
-        ///  管理番号
-        /// </summary>
-        public long Id { get; set; }
 
         /// <summary>
         ///  短歌
@@ -45,16 +40,16 @@ namespace BLayer.DataModel
         public string Memo { get; set; }
 
         /// <summary>
-        ///  更新日時
+        ///  登録日時
         /// </summary>
-        public string UpdateDate { get; set; }
+        public string CreateDate { get; set; }
         #endregion
 
         #region コンストラクタ
         /// <summary>
         ///  コンストラクタ
         /// </summary>
-        public ServerPreferenceUpdateDataModel()
+        public TestPreferenceDataModel()
         {
         }
         #endregion

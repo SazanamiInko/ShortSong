@@ -57,7 +57,7 @@ namespace BLayer.DataModel
         /// <summary>
         ///  更新日時
         /// </summary>
-        public string UpdateDate { get; set; }
+        public string UpdateDateTime { get; set; }
 
         /// <summary>
         ///  更新回数
@@ -78,6 +78,5 @@ namespace BLayer.DataModel
         {
         }
         #endregion
-
     }
 }

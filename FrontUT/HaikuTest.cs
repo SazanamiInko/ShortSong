@@ -1,6 +1,7 @@
 using BLayer.DataModel;
 using BLayer.Logics;
 using DLayer.Models;
+using FrontUT.DataModel;
 using FrontUT.TDLayer;
 using FrontUT.TTestDataGen;
 
@@ -182,7 +183,7 @@ namespace FrontUT
 
             var genData = gen.GenPattern1();
             var expectedCount = 1;
-            var expected = new HaikuSimple();
+            var expected = new TestHaikuIndexDataModel();
             
             expected.Id = 1;
             expected.Haiku = "テストなのああテストなのテストなの";
@@ -273,7 +274,7 @@ namespace FrontUT
                 context.InsertHaiku(data);
             }
 
-            var expected=new HaikuModel();
+            var expected=new TestHaikuDataModel();
             expected.Id = 1;
             expected.Front = "まえがき";
             expected.Haiku = "テストなのああテストなのテストなの";
@@ -341,7 +342,7 @@ namespace FrontUT
                 logic.Context = null;
 
                 //テスト
-                var actual = logic.AddHaiku(new HaikuModel());
+                var actual = logic.AddHaiku(new TestHaikuDataModel());
             }
             catch (Exception e)
             {
@@ -381,7 +382,7 @@ namespace FrontUT
             expected.UpdateCount = 0;
             expected.Delete = 0;
 
-            var parameter = new HaikuModel();
+            var parameter = new TestHaikuDataModel();
 
             parameter.Id = 6;
             parameter.Front = "宇宙まおの昔の楽曲";
@@ -450,7 +451,7 @@ namespace FrontUT
                 logic.Context = null;
 
                 //テスト
-                var actual = logic.UpdateHaiku(new HaikuUpdateModel());
+                var actual = logic.UpdateHaiku(new TestHaikuUpdateDataModel());
             }
             catch (Exception e)
             {
@@ -474,7 +475,7 @@ namespace FrontUT
                 context.InsertHaiku(data);
             }
 
-            var parameter = new HaikuUpdateModel();
+            var parameter = new TestHaikuUpdateDataModel();
             parameter.Id = 1;
             parameter.Front = "宇宙まおの昔の楽曲";
             parameter.Haiku = " 春風がバイバイの背を押している";

@@ -7,61 +7,61 @@ namespace Interfaces.DataModels
     /// </summary>
     public interface IShortSongDataModel
     {
-
+        
         /// <summary>
-        ///  管理番号
-        /// </summary>
-        public long Id { get; set; }
-
+    ///  管理番号
+    /// </summary>
+    public long Id{get;set;} 
+              
         /// <summary>
-        ///  前書き
-        /// </summary>
-        public string Front { get; set; }
-
+    ///  前書き
+    /// </summary>
+    public string Front{get;set;} 
+              
         /// <summary>
-        ///  短歌
-        /// </summary>
-        public string Uta { get; set; }
-
+    ///  短歌
+    /// </summary>
+    public string Uta{get;set;} 
+              
         /// <summary>
-        ///  かな
-        /// </summary>
-        public string Kana { get; set; }
-
+    ///  かな
+    /// </summary>
+    public string Kana{get;set;} 
+              
         /// <summary>
-        ///  英語
-        /// </summary>
-        public string English { get; set; }
-
+    ///  英語
+    /// </summary>
+    public string English{get;set;} 
+              
         /// <summary>
-        ///  見出し
-        /// </summary>
-        public string Index { get; set; }
-
+    ///  見出し
+    /// </summary>
+    public string Index{get;set;} 
+              
         /// <summary>
-        ///  備考
-        /// </summary>
-        public string Memo { get; set; }
-
+    ///  備考
+    /// </summary>
+    public string Memo{get;set;} 
+              
         /// <summary>
-        ///  季節
-        /// </summary>
-        public long Seazon { get; set; }
-
+    ///  季節
+    /// </summary>
+    public long Seazon{get;set;} 
+              
         /// <summary>
-        ///  登録日時
-        /// </summary>
-        public string CreateDate { get; set; }
-
+    ///  登録日時
+    /// </summary>
+    public string CreateDate{get;set;} 
+              
         /// <summary>
-        ///  削除フラグ
-        /// </summary>
-        public long Delete { get; set; }
-
+    ///  削除フラグ
+    /// </summary>
+    public long Delete{get;set;} 
+              
         /// <summary>
-        ///  本歌
-        /// </summary>
-        public string RefUta { get; set; }
-
+    ///  本歌
+    /// </summary>
+    public string RefUta{get;set;} 
+          
     }
 }
