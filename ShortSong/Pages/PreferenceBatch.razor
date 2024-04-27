@@ -1,0 +1,30 @@
+﻿@page "/PreferenceBatch"
+@using ShortSong.ViewModels
+@inherits PreferenceBatchViewModel
+
+<h3>お気に入り一括登録</h3>
+
+
+
+<p>
+    <MatTextField @bind-Value="Author"
+                  Label="作者"
+                  Style="width:500px" />
+</p>
+
+<p>
+    <MatTextField @bind-Value="Book"
+                  Label="出典"
+                  Style="width:500px" />
+</p>
+
+<p>
+    <MatTextField @bind-Value="Era"
+                  Label="時代"
+                  Style="width:500px" />
+</p>
+
+<p></p>
+<MatFileUpload OnChange="@OnFileUpload"
+                  AllowMultiple=false
+    Label="ファイルを選択してください"/>

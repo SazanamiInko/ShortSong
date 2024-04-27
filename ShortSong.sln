@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenFront", "Gen\GenFront\Ge
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterfaceMaker", "Gen\InterfaceMaker\InterfaceMaker.csproj", "{0B9CFDAA-8062-4CD8-9F49-D121ABF46C3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{E7126DDF-B3BE-4B5D-A87F-24CCCC331C59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{E7126DDF-B3BE-4B5D-A87F-24CCCC331C59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

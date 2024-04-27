@@ -1,11 +1,6 @@
 using DLayer.Models;
 using MatBlazor;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using ShortSong.Data;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
