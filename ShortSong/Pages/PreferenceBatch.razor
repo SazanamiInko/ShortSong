@@ -28,3 +28,30 @@
 <MatFileUpload OnChange="@OnFileUpload"
                   AllowMultiple=false
     Label="ファイルを選択してください"/>
+
+    @if (Preferences.Count > 0)
+{
+   
+    <MatTable Items="@Preferences">
+        <MatTableHeader>
+            <th style="width:1000px">短歌</th>
+        </MatTableHeader>
+        <MatTableRow>
+            <td>
+                <div style="white-space: nowrap;">
+                    @context
+                </div>
+            </td>
+        </MatTableRow>
+
+    </MatTable>
+   
+}
+
+
+
+<div>
+    <input type="button"
+           value="登録"
+           @onclick="OnAddPreferenceAsync" />
+</div>

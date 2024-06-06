@@ -30,8 +30,11 @@ namespace ShortSong.ViewModels
         [Parameter]
         public string? Era { get; set; }
 
-
-        
+        /// <summary>
+        /// お気に入り
+        /// </summary>
+        [Parameter]
+        public List<string> Preferences { get; set; }
 
         #endregion
 
@@ -59,7 +62,7 @@ namespace ShortSong.ViewModels
         /// </summary>
         public PreferenceBatchViewModel() 
         { 
-        
+            this.Preferences = new List<string>();
         }
 
         #endregion
@@ -75,6 +78,7 @@ namespace ShortSong.ViewModels
         {
             try
             {
+                Preferences.Clear();
                 if (files.Count() == 0)
                 {
                     return;
@@ -89,7 +93,7 @@ namespace ShortSong.ViewModels
                     {
                        var fileContent = await reader.ReadToEndAsync();
 
-                        fileContent.Split("\r\n");
+                        this.Preferences.AddRange(fileContent.Split("\n"));
                     }
 
                     
@@ -100,13 +104,28 @@ namespace ShortSong.ViewModels
 
                 if (this.MatDialogService != null)
                 {
-                    this.MatDialogService.AlertAsync("ファイルアップロードに失敗しました。。");
+                    this.MatDialogService.AlertAsync("ファイルアップロードに失敗しました。");
                 }
                 throw;
             }
         
         }
 
+        /// <summary>
+        /// お気に入り一括登録
+        /// </summary>
+        /// <returns></returns>
+        public async Task OnAddPreferenceAsync()
+        {
+            try
+            {
+
+                this.MatDialogService.AlertAsync("お気に入りを一括登録しました。");
+            }
+            catch
+            {
+            }
+        }
         #endregion
 
     }
