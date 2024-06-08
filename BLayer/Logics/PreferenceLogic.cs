@@ -169,7 +169,7 @@ namespace BLayer.Logics
                     Mapper commonMap = new Mapper(commonConfig);
 
                     var detailConfig = new MapperConfiguration(cfg => { cfg.CreateMap<IPreferenceDetailDataModel, TPreference>(); });
-                    Mapper detailMap = new Mapper(commonConfig);
+                    Mapper detailMap = new Mapper(detailConfig);
 
 
                     foreach (var uta in model.Items)
