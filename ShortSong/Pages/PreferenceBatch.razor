@@ -2,9 +2,11 @@
 @using ShortSong.ViewModels
 @inherits PreferenceBatchViewModel
 
+<header>
+    <link href="~/css/common.css"/>
+</header>
+
 <h3>お気に入り一括登録</h3>
-
-
 
 <p>
     <MatTextField @bind-Value="Author"
@@ -26,32 +28,46 @@
 
 <p></p>
 <MatFileUpload OnChange="@OnFileUpload"
-                  AllowMultiple=false
-    Label="ファイルを選択してください"/>
+               AllowMultiple=false
+               Label="ファイルを選択してください" />
 
-    @if (Preferences.Count > 0)
+
+@if (Preferences.Count > 0)
 {
-   
+
     <MatTable Items="@Preferences">
         <MatTableHeader>
-            <th style="width:1000px">短歌</th>
+            <th>チェック</th>
+            <th style="width:500px">短歌</th>
+            <th style="width:500px">備考</th>
         </MatTableHeader>
         <MatTableRow>
             <td>
+                <MatCheckbox @bind-Value="context.Check" />
+            </td>
+
+            <td>
                 <div style="white-space: nowrap;">
-                    @context
+                    @context.Uta
+                </div>
+            </td>
+
+            <td>
+                <div style="white-space: nowrap;">
+                    <MatTextField @bind-Value="context.Memo"/>
                 </div>
             </td>
         </MatTableRow>
 
     </MatTable>
-   
+
 }
 
 
 
-<div>
+<div class="footer_area">
     <input type="button"
            value="登録"
-           @onclick="OnAddPreferenceAsync" />
+           @onclick="OnAddPreferenceAsync"
+           style="height:50px;width:100px"/>
 </div>

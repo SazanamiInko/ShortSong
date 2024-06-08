@@ -1,5 +1,7 @@
-﻿using MatBlazor;
+﻿using Interfaces.DataModels;
+using MatBlazor;
 using Microsoft.AspNetCore.Components;
+using ShortSong.Data;
 using System.IO;
 
 namespace ShortSong.ViewModels
@@ -16,25 +18,25 @@ namespace ShortSong.ViewModels
         /// 作者
         /// </summary>
         [Parameter]
-        public string Author { get; set; } = null!;
+        public string Author { get; set; } = "";
 
         /// <summary>
         /// 出典
         /// </summary>
         [Parameter]
-        public string? Book { get; set; }
+        public string? Book { get; set; } = "";
 
         /// <summary>
         /// 時代
         /// </summary>
         [Parameter]
-        public string? Era { get; set; }
+        public string? Era { get; set; } = "";
 
         /// <summary>
         /// お気に入り
         /// </summary>
         [Parameter]
-        public List<string> Preferences { get; set; }
+        public List<ClientPreferenceDetailDataModel> Preferences { get; set; }
 
         #endregion
 
@@ -62,7 +64,7 @@ namespace ShortSong.ViewModels
         /// </summary>
         public PreferenceBatchViewModel() 
         { 
-            this.Preferences = new List<string>();
+            this.Preferences = new List<ClientPreferenceDetailDataModel>();
         }
 
         #endregion
@@ -91,11 +93,13 @@ namespace ShortSong.ViewModels
                     stream.Seek(0, SeekOrigin.Begin);
                     using (var reader = new StreamReader(stream))
                     {
-                       var fileContent = await reader.ReadToEndAsync();
-
-                        this.Preferences.AddRange(fileContent.Split("\n"));
+                        var fileContent = await reader.ReadToEndAsync();
+                        var preferences = fileContent.Split("\n");
+                        foreach (var item in preferences)
+                        {
+                            this.Preferences.Add(new ClientPreferenceDetailDataModel() { Uta=item});
+                        }
                     }
-
                     
                 }
             }
@@ -119,6 +123,15 @@ namespace ShortSong.ViewModels
         {
             try
             {
+                ClientPreferenceBatchDataModel model= new ClientPreferenceBatchDataModel();
+                model.Author = this.Author;
+                model.Book = this.Book;
+                model.Era = this.Era;
+
+                foreach (var item in Preferences.Where(record => record.Check))
+                {
+                    model.Items.Add(item);
+                }
 
                 this.MatDialogService.AlertAsync("お気に入りを一括登録しました。");
             }

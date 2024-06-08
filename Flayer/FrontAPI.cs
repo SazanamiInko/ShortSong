@@ -136,6 +136,16 @@ namespace FLayer
         }
 
         /// <summary>
+        /// お気に入り一括追加
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static bool AddBatchPreference(IPreferenceBatchDataModel model)
+        {
+            return preferenceLogic.AddBatchPreference(model);
+        }
+
+        /// <summary>
         /// お気に入り削除
         /// </summary>
         /// <param name="id"></param>

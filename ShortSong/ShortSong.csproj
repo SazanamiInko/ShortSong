@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\common.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MatBlazor" Version="2.8.0" />
   </ItemGroup>
 

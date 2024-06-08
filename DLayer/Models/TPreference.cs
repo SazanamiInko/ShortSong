@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DLayer.Models;
+﻿namespace DLayer.Models;
 
 public partial class TPreference
 {

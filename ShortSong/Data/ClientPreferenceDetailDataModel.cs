@@ -12,7 +12,7 @@ namespace ShortSong.Data
         /// <summary>
         ///  管理番号
         /// </summary>
-        public long Id { get; set; }
+        public bool Check { get; set; } = true;
 
         /// <summary>
         ///  短歌

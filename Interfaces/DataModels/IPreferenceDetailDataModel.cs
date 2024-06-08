@@ -9,11 +9,6 @@ namespace Interfaces.DataModels
     {
 
         /// <summary>
-        ///  管理番号
-        /// </summary>
-        public long Id { get; set; }
-
-        /// <summary>
         ///  短歌
         /// </summary>
         public string Uta { get; set; }
