@@ -162,26 +162,32 @@ namespace BLayer.Logics
         /// <returns></returns>
         public bool AddBatchPreference(IPreferenceBatchDataModel model)
         {
-           
+            Context.ExecTransaction(() =>
+                {
 
-            var commonConfig = new MapperConfiguration(cfg => { cfg.CreateMap<IPreferenceBatchDataModel, TPreference>(); });
-            Mapper commonMap = new Mapper(commonConfig);
+                    var commonConfig = new MapperConfiguration(cfg => { cfg.CreateMap<IPreferenceBatchDataModel, TPreference>(); });
+                    Mapper commonMap = new Mapper(commonConfig);
 
-            var detailConfig = new MapperConfiguration(cfg => { cfg.CreateMap<IPreferenceDetailDataModel, TPreference>(); });
-            Mapper detailMap = new Mapper(commonConfig);
+                    var detailConfig = new MapperConfiguration(cfg => { cfg.CreateMap<IPreferenceDetailDataModel, TPreference>(); });
+                    Mapper detailMap = new Mapper(commonConfig);
 
 
-            foreach (var uta in model.Items)
-            {
-                var record = commonMap.Map<TPreference>(model);
-                detailMap.Map(uta, record);
-                Context.InsertPreferences(record);
+                    foreach (var uta in model.Items)
+                    {
+                        var record = commonMap.Map<TPreference>(model);
+                        detailMap.Map(uta, record);
+                        Context.InsertPreferences(record);
 
-            }
+                    }
 
-            Context.SaveChanges();
+                    Context.SaveChanges();
+
+                }
+                #endregion
+
+            );
+
             return true;
         }
-        #endregion
     }
 }
