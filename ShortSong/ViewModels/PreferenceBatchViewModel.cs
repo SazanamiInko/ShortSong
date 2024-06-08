@@ -1,4 +1,5 @@
-﻿using Interfaces.DataModels;
+﻿using FLayer;
+using Interfaces.DataModels;
 using MatBlazor;
 using Microsoft.AspNetCore.Components;
 using ShortSong.Data;
@@ -132,11 +133,12 @@ namespace ShortSong.ViewModels
                 {
                     model.Items.Add(item);
                 }
-
+                FrontAPI.AddBatchPreference(model);
                 this.MatDialogService.AlertAsync("お気に入りを一括登録しました。");
             }
             catch
             {
+                this.MatDialogService.AlertAsync("お気に入りを一括登録に失敗しました。");
             }
         }
         #endregion
