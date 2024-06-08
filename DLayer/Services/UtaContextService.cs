@@ -12,6 +12,9 @@ namespace DLayer.Services
     {
         #region メンバー
 
+        /// <summary>
+        /// Entity
+        /// </summary>
         private UtaContext context;
 
         #endregion
@@ -48,6 +51,28 @@ namespace DLayer.Services
         public void SaveChanges()
         {
             context.SaveChanges();
+        }
+
+        /// <summary>
+        /// トランザクションの実行
+        /// </summary>
+        /// <param name="action">トランザクションの対象処理</param>
+        public void ExecTransaction(Action action)
+        {
+            using(var transaction=context.Database.BeginTransaction())
+            {
+                try
+                {
+                    //処理を実行する
+                    action();
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    throw;
+                }
+            }
         }
 
         #endregion

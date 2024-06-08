@@ -99,7 +99,20 @@ namespace DLayer.Interfacrs
 
         #endregion
 
+        #region メソッド
 
+        /// <summary>
+        /// 一相コミット
+        /// </summary>
         public void SaveChanges();
+
+        /// <summary>
+        /// トランザクションの実行(二相コミット)
+        /// </summary>
+        /// <param name="action"></param>
+        public void ExecTransaction(Action action);
+        #endregion
+
+
     }
 }

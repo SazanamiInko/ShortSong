@@ -55,10 +55,19 @@ namespace FrontUT.TDLayer
         #region オーバーライド関数
 
         /// <summary>
-        /// 
+        /// 変更保存
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
         public void SaveChanges()
+        {
+
+        }
+
+        /// <summary>
+        /// トランザクションの実行
+        /// </summary>
+        /// <param name="action"></param>
+        public void ExecTransaction(Action action)
         {
 
         }
