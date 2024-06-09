@@ -4,7 +4,7 @@
  2.システム構成
 
  　フロント画面->Blazor
-   データベース->SqLire
+   データベース->SQLite
    データ層->EntityFrameWork
 
 3,プロジェクト一覧
