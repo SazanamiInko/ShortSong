@@ -21,7 +21,7 @@ namespace Interfaces.DataModels
         /// <summary>
     ///  作者
     /// </summary>
-    public string Auther{get;set;} 
+    public string Author{get;set;} 
           
     }
 }
